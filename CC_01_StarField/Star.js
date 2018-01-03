@@ -1,3 +1,10 @@
+// Daniel Shiffman
+// http://codingtra.in
+// http://patreon.com/codingtrain
+// Code for: https://youtu.be/17WoOqgXsRM
+
+// instance mode by Naoto Hieda
+
 function Star(sketch) {
   this.x = sketch.random(-sketch.width, sketch.width);
   this.y = sketch.random(-sketch.height, sketch.height);

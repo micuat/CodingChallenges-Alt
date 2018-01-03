@@ -3,6 +3,8 @@
 // http://patreon.com/codingtrain
 // Code for: https://youtu.be/17WoOqgXsRM
 
+// instance mode by Naoto Hieda
+
 var s = function( sketch ) {
 
   var stars = [];
