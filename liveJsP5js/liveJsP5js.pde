@@ -40,8 +40,8 @@ void setup() {
   size(800, 800, P3D);
   frameRate(60);
 
-  scriptPaths.add(dataPath("../../CC_01_StarField/Star.js"));
-  scriptPaths.add(dataPath("../../CC_01_StarField/sketch.js"));
+  scriptPaths.add(dataPath("../../CC_Alt_01_StarField/Star.js"));
+  scriptPaths.add(dataPath("../../CC_Alt_01_StarField/sketch.js"));
 
   initNashorn();
 
