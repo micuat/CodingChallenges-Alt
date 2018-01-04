@@ -33,6 +33,7 @@ private static ArrayList<String> scriptPaths = new ArrayList<String>();
 private static long prevModified;
 
 public String drawMode = "p2d"; // "p2d" / "webgl"
+public int newWidth, newHeight;
 
 float frameRate() {
   return frameRate;
@@ -42,6 +43,7 @@ void setup() {
   oscP5 = new OscP5(this, 7000);
 
   size(400, 400, P3D);
+  surface.setResizable(true);
   frameRate(60);
 
   scriptPaths.add(sketchPath("../CC_Alt_02_MengerSponge/Box.js"));
@@ -106,10 +108,10 @@ void initNashorn() {
     nashorn.eval("alternateSketch.push = function() {alternateSketch.pushMatrix(); alternateSketch.pushStyle();}");
     nashorn.eval("alternateSketch.pop = function() {alternateSketch.popMatrix(); alternateSketch.popStyle();}");
 
-    // createCanvas reads draw mode - also it should set size?
+    // createCanvas reads draw mode
     nashorn.eval("alternateSketch.P2D = 'p2d';");
     nashorn.eval("alternateSketch.WEBGL = 'webgl';");
-    nashorn.eval("alternateSketch.createCanvas = function(w, h, mode) {pApplet.drawMode = mode;}");
+    nashorn.eval("alternateSketch.createCanvas = function(w, h, mode) {pApplet.newWidth = w; pApplet.newHeight = h; pApplet.drawMode = mode;}");
 
     // utility
     nashorn.eval("this.isReservedFunction = function (str) {" +
@@ -168,7 +170,7 @@ public static String readFile(String path) throws IOException {
   return new String(encoded, StandardCharsets.UTF_8);
 }
 
-public static void readFiles(ArrayList<String> paths) throws IOException {
+public void readFiles(ArrayList<String> paths) throws IOException {
   long lastModified = 0;
   for (String path : paths) {
     long modified = Files.getLastModifiedTime(Paths.get(path)).toMillis();
@@ -196,6 +198,7 @@ public static void readFiles(ArrayList<String> paths) throws IOException {
     }
     try {
       nashorn.eval("alternateSketch.setup();");
+      surface.setSize(newWidth, newHeight);
     }
     catch (ScriptException e) {
       e.printStackTrace();
