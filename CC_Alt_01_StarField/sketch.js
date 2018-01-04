@@ -9,7 +9,7 @@ var s = function( sketch ) {
 
   var stars = [];
 
-  var speed = -0;
+  var speed = 0;
 
   sketch.setup = function setup() {
     sketch.createCanvas(600, 600);
@@ -21,16 +21,16 @@ var s = function( sketch ) {
   sketch.draw = function() {
     if(sketch.frameCount % 60 == 0) {
       if(sketch.frameCount % 120 < 60) {
-        this.speed = sketch.random(10, 20);
+        speed = sketch.random(10, 20);
       }
       else {
-        this.speed = sketch.random(50, 100);
+        speed = sketch.random(50, 100);
       }
     }
     sketch.background(0);
     sketch.translate(sketch.width / 2, sketch.height / 2);
     for (var i = 0; i < stars.length; i++) {
-      stars[i].update(this.speed);
+      stars[i].update(speed);
       stars[i].show();
     }
   };
