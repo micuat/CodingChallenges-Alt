@@ -19,4 +19,4 @@ Differences
 --------
 
 1. Star Field: none
-1. Menger Sponge: Processing version doesn't show material/lighting, needs no depth test hint
+1. Menger Sponge: Processing version doesn't have `normalMaterial`
