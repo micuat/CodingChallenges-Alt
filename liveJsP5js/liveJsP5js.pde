@@ -37,15 +37,15 @@ float frameRate() {
 }
 
 void setup() {
+  oscP5 = new OscP5(this, 7000);
+
   size(800, 800, P3D);
   frameRate(60);
 
-  scriptPaths.add(dataPath("../../CC_Alt_01_StarField/Star.js"));
-  scriptPaths.add(dataPath("../../CC_Alt_01_StarField/sketch.js"));
+  scriptPaths.add(sketchPath("../CC_Alt_01_StarField/Star.js"));
+  scriptPaths.add(sketchPath("../CC_Alt_01_StarField/sketch.js"));
 
   initNashorn();
-
-  oscP5 = new OscP5(this, 7000);
 }
 
 void initNashorn() {
