@@ -29,9 +29,8 @@ function Box(sketch, x, y, z, r) {
   this.show = function () {
     sketch.push();
     sketch.translate(this.pos.x, this.pos.y, this.pos.z);
-    sketch.stroke(255);
     sketch.noStroke();
-    sketch.noFill();
+    sketch.fill(255, 20);
     sketch.box(this.r);
     sketch.pop();
   }

@@ -41,11 +41,11 @@ float frameRate() {
 void setup() {
   oscP5 = new OscP5(this, 7000);
 
-  size(800, 800, P3D);
+  size(400, 400, P3D);
   frameRate(60);
 
-  scriptPaths.add(sketchPath("../CC_02_MengerSponge/Box.js"));
-  scriptPaths.add(sketchPath("../CC_02_MengerSponge/sketch.js"));
+  scriptPaths.add(sketchPath("../CC_Alt_02_MengerSponge/Box.js"));
+  scriptPaths.add(sketchPath("../CC_Alt_02_MengerSponge/sketch.js"));
 
   initNashorn();
 }
