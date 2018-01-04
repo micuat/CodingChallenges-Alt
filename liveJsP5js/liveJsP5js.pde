@@ -32,6 +32,8 @@ public static String VERSION = "0.1";
 private static ArrayList<String> scriptPaths = new ArrayList<String>();
 private static long prevModified;
 
+public String drawMode = "p2d"; // "p2d" / "webgl"
+
 float frameRate() {
   return frameRate;
 }
@@ -42,8 +44,8 @@ void setup() {
   size(800, 800, P3D);
   frameRate(60);
 
-  scriptPaths.add(sketchPath("../CC_Alt_01_StarField/Star.js"));
-  scriptPaths.add(sketchPath("../CC_Alt_01_StarField/sketch.js"));
+  scriptPaths.add(sketchPath("../CC_02_MengerSponge/Box.js"));
+  scriptPaths.add(sketchPath("../CC_02_MengerSponge/sketch.js"));
 
   initNashorn();
 }
@@ -97,8 +99,17 @@ void initNashorn() {
       "  if(arguments.length == 2) return sketch.map(Math.random(), 0, 1, arguments[0], arguments[1]);" +
       "}");
 
-    // dummy createCanvas - should set size?
-    nashorn.eval("alternateSketch.createCanvas = function(w, h, mode) {}");
+    // createVector
+    nashorn.eval("alternateSketch.createVector = function(x, y, z) { return new Packages.processing.core.PVector(x, y, z); }");
+
+    // push / pop
+    nashorn.eval("alternateSketch.push = function() {alternateSketch.pushMatrix(); alternateSketch.pushStyle();}");
+    nashorn.eval("alternateSketch.pop = function() {alternateSketch.popMatrix(); alternateSketch.popStyle();}");
+
+    // createCanvas reads draw mode - also it should set size?
+    nashorn.eval("alternateSketch.P2D = 'p2d';");
+    nashorn.eval("alternateSketch.WEBGL = 'webgl';");
+    nashorn.eval("alternateSketch.createCanvas = function(w, h, mode) {pApplet.drawMode = mode;}");
 
     // utility
     nashorn.eval("this.isReservedFunction = function (str) {" +
@@ -126,6 +137,9 @@ void draw() {
 
   try {
     nashorn.eval("for(var prop in pApplet) {if(!this.isReservedFunction(prop)) {alternateSketch[prop] = pApplet[prop]}}");
+    if(drawMode == "webgl") {
+      translate(width / 2, height / 2);
+    }
     nashorn.eval("alternateSketch.draw();");
   }
   catch (ScriptException e) {
