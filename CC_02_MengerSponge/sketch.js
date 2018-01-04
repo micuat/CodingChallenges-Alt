@@ -5,7 +5,6 @@
 
 // instance mode by Naoto Hieda
 
-
 var s = function (sketch) {
 
   var a = 0;

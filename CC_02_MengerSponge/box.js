@@ -3,6 +3,8 @@
 // http://patreon.com/codingtrain
 // Code for this video: https://youtu.be/LG8ZK-rRkXo
 
+// instance mode by Naoto Hieda
+
 function Box(sketch, x, y, z, r) {
   this.pos = sketch.createVector(x, y, z);
   this.r = r;
