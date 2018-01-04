@@ -11,14 +11,14 @@ var s = function( sketch ) {
 
   var speed = 0;
 
-  sketch.setup = function setup() {
+  sketch.setup = function () {
     sketch.createCanvas(600, 600);
     for (var i = 0; i < 800; i++) {
       stars[i] = new Star(sketch);
     }
   }
 
-  sketch.draw = function() {
+  sketch.draw = function () {
     if(sketch.frameCount % 60 == 0) {
       if(sketch.frameCount % 120 < 60) {
         speed = sketch.random(10, 20);

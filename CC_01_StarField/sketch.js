@@ -11,14 +11,14 @@ var s = function( sketch ) {
 
   var speed;
 
-  sketch.setup = function setup() {
+  sketch.setup = function () {
     sketch.createCanvas(600, 600);
     for (var i = 0; i < 800; i++) {
       stars[i] = new Star(sketch);
     }
   }
 
-  sketch.draw = function() {
+  sketch.draw = function () {
     speed = sketch.map(sketch.mouseX, 0, sketch.width, 0, 50);
     sketch.background(0);
     sketch.translate(sketch.width / 2, sketch.height / 2);
