@@ -46,8 +46,8 @@ void setup() {
   surface.setResizable(true);
   frameRate(60);
 
-  scriptPaths.add(sketchPath("../CC_Alt_02_MengerSponge/Box.js"));
-  scriptPaths.add(sketchPath("../CC_Alt_02_MengerSponge/sketch.js"));
+  scriptPaths.add(sketchPath("../CC_03_Snake_game/snake.js"));
+  scriptPaths.add(sketchPath("../CC_03_Snake_game/sketch.js"));
 
   initNashorn();
 }
@@ -74,6 +74,12 @@ void initNashorn() {
     nashorn.eval("var PConstantsFields = Packages.processing.core.PConstants.class.getFields();");
     nashorn.eval("for(var i = 0; i < PConstantsFields.length; i++) {alternateSketch[PConstantsFields[i].getName()] = PConstantsFields[i].get({})}");
 
+    // **_ARROW in p5.js
+    nashorn.eval("alternateSketch.UP_ARROW = alternateSketch.UP");
+    nashorn.eval("alternateSketch.DOWN_ARROW = alternateSketch.DOWN");
+    nashorn.eval("alternateSketch.LEFT_ARROW = alternateSketch.LEFT");
+    nashorn.eval("alternateSketch.RIGHT_ARROW = alternateSketch.RIGHT");
+
     // static methods
     nashorn.eval("var PAppletFields = pApplet.class.getMethods();");
     nashorn.eval(
@@ -99,6 +105,11 @@ void initNashorn() {
     nashorn.eval("alternateSketch.random = function() {" +
       "  if(arguments.length == 1) return Math.random() * arguments[0];" +
       "  if(arguments.length == 2) return sketch.map(Math.random(), 0, 1, arguments[0], arguments[1]);" +
+      "}");
+
+    // overwrite constrain (int/float arity signature problem)
+    nashorn.eval("alternateSketch.constrain = function(x, xl, xh) {" +
+      "  return Math.min(Math.max(x, xl), xh);" +
       "}");
 
     // createVector
