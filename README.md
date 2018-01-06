@@ -21,3 +21,4 @@ Differences
 1. Star Field: none
 1. Menger Sponge: Processing version doesn't have `normalMaterial`
 1. Snake Game: none
+1. Purple Rain: none
