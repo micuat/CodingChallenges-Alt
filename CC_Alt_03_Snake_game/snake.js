@@ -41,23 +41,25 @@ function Snake(sketch, scl) {
     }
   }
 
-  this.update = function() {
+  this.update = function(tiles) {
     if(sketch.frameCount % 10 != 0) return;
 
     for (var i = 0; i < this.tail.length - 1; i++) {
       this.tail[i] = this.tail[i + 1];
+      var x = this.tail[i].x / scl;
+      var y = this.tail[i].y / scl;
+      tiles[y][x].pColor = 0;
     }
     if(this.toAdd > 0) {
       this.total++;
       this.toAdd--;
     }
     if (this.total >= 1) {
-      // for(var i = this.total-1; i < this.total; i++) {
-      //   console.log(i);
-      //   this.tail[i] = sketch.createVector(this.x, this.y);
-      // }
-      // console.log(this.total)
       this.tail[this.total - 1] = sketch.createVector(this.x, this.y);
+
+      var x = this.tail[this.total - 1].x / scl;
+      var y = this.tail[this.total - 1].y / scl;
+      tiles[y][x].pColor = 0;
     }
 
     this.x = this.x + this.xspeed * scl;
@@ -65,14 +67,17 @@ function Snake(sketch, scl) {
 
     this.x = sketch.constrain(this.x, 0, sketch.width - scl);
     this.y = sketch.constrain(this.y, 0, sketch.height - scl);
+
+    var j = this.x / scl;
+    var i = this.y / scl;
+    tiles[i][j].pColor = 0;
   }
 
   this.show = function() {
-    sketch.fill(255);
-    for (var i = 0; i < this.tail.length; i++) {
-      sketch.rect(this.tail[i].x, this.tail[i].y, scl, scl);
-    }
-    sketch.rect(this.x, this.y, scl, scl);
-
+    // sketch.fill(255);
+    // for (var i = 0; i < this.tail.length; i++) {
+    //   sketch.rect(this.tail[i].x, this.tail[i].y, scl, scl);
+    // }
+    // sketch.rect(this.x, this.y, scl, scl);
   }
 }
