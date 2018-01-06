@@ -122,7 +122,10 @@ void initNashorn() {
     // createCanvas reads draw mode
     nashorn.eval("alternateSketch.P2D = 'p2d';");
     nashorn.eval("alternateSketch.WEBGL = 'webgl';");
-    nashorn.eval("alternateSketch.createCanvas = function(w, h, mode) {pApplet.newWidth = w; pApplet.newHeight = h; pApplet.drawMode = mode;}");
+    nashorn.eval("alternateSketch.createCanvas = function(w, h, mode) {"+
+      "  alternateSketch.width = w; alternateSketch.height = h;" +
+      "  pApplet.newWidth = w; pApplet.newHeight = h; pApplet.drawMode = mode;" +
+      "}");
 
     // utility
     nashorn.eval("this.isReservedFunction = function (str) {" +
