@@ -46,8 +46,8 @@ void setup() {
   surface.setResizable(true);
   frameRate(60);
 
-  scriptPaths.add(sketchPath("../CC_Alt_03_Snake_game/snake.js"));
-  scriptPaths.add(sketchPath("../CC_Alt_03_Snake_game/sketch.js"));
+  scriptPaths.add(sketchPath("../CC_Alt_04_PurpleRain/drop.js"));
+  scriptPaths.add(sketchPath("../CC_Alt_04_PurpleRain/sketch.js"));
 
   initNashorn();
 }
