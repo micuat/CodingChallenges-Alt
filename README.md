@@ -22,3 +22,4 @@ Differences
 1. Menger Sponge: Processing version doesn't have `normalMaterial`
 1. Snake Game: none
 1. Purple Rain: none
+1. Space Invaders: `sketch.key === ' '` has to be `==` because in Nashorn `sketch.key` is a `java.lang.Character` object whereas `' '` is evaluated as `java.lang.String`

@@ -69,7 +69,7 @@ var s = function (sketch) {
 
 
   sketch.keyPressed = function () {
-    if (sketch.key === ' ') {
+    if (sketch.key == ' ') {
       var drop = new Drop(sketch, ship.x, sketch.height);
       drops.push(drop);
     }
