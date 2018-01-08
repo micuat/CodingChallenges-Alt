@@ -3,6 +3,8 @@
 // http://patreon.com/codingtrain
 // Code for: https://youtu.be/biN3v3ef-Y0
 
+// instance mode by Naoto Hieda
+
 function Flower(sketch, x, y) {
   this.x = x;
   this.y = y;

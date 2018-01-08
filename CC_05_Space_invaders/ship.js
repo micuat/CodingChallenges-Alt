@@ -3,6 +3,8 @@
 // http://patreon.com/codingtrain
 // Code for: https://youtu.be/biN3v3ef-Y0
 
+// instance mode by Naoto Hieda
+
 function Ship(sketch) {
   this.x = sketch.width/2;
   this.xdir = 0;
