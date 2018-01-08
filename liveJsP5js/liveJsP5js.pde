@@ -46,8 +46,10 @@ void setup() {
   surface.setResizable(true);
   frameRate(60);
 
-  scriptPaths.add(sketchPath("../CC_Alt_04_PurpleRain/drop.js"));
-  scriptPaths.add(sketchPath("../CC_Alt_04_PurpleRain/sketch.js"));
+  scriptPaths.add(sketchPath("../CC_Alt_05_Space_invaders/flower.js"));
+  scriptPaths.add(sketchPath("../CC_Alt_05_Space_invaders/drop.js"));
+  scriptPaths.add(sketchPath("../CC_Alt_05_Space_invaders/ship.js"));
+  scriptPaths.add(sketchPath("../CC_Alt_05_Space_invaders/sketch.js"));
 
   initNashorn();
 }
