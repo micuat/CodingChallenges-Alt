@@ -46,10 +46,8 @@ void setup() {
   surface.setResizable(true);
   frameRate(60);
 
-  scriptPaths.add(sketchPath("../CC_Alt_05_Space_invaders/flower.js"));
-  scriptPaths.add(sketchPath("../CC_Alt_05_Space_invaders/drop.js"));
-  scriptPaths.add(sketchPath("../CC_Alt_05_Space_invaders/ship.js"));
-  scriptPaths.add(sketchPath("../CC_Alt_05_Space_invaders/sketch.js"));
+  scriptPaths.add(sketchPath("../CC_06_Mitosis/cell.js"));
+  scriptPaths.add(sketchPath("../CC_06_Mitosis/sketch.js"));
 
   initNashorn();
 }
@@ -130,13 +128,29 @@ void initNashorn() {
       "}");
 
     // utility
+    // avoids standard functions like setup/draw/... as they will be overwritten in the script
+    // also avoids color to treat separately
     nashorn.eval("this.isReservedFunction = function (str) {" +
       "  var isArgument_ = function (element) { return str === element; };" +
-      "  return ['setup', 'draw', 'keyPressed', 'keyReleased', 'keyTyped', 'mouseClicked', 'mouseDragged', 'mouseMoved', 'mousePressed', 'mouseReleased', 'mouseWheel', 'oscEvent'].some(isArgument_);" +
+      "  return ['color', 'setup', 'draw', 'keyPressed', 'keyReleased', 'keyTyped', 'mouseClicked', 'mouseDragged', 'mouseMoved', 'mousePressed', 'mouseReleased', 'mouseWheel', 'oscEvent'].some(isArgument_);" +
       "}");
 
     // p5js entry point
     nashorn.eval("var p5 = function(sketch) {sketch(alternateSketch); globalSketch = alternateSketch;}");
+
+    // p5.Vector
+    nashorn.eval("p5.Vector = {};");
+    // random2D dirty fix - all the PVector functions should be bound to p5.Vector
+    nashorn.eval("p5.Vector.random2D = function(x, y) { return Packages.processing.core.PVector.random2D(); }");
+
+    // overwrite color (int/float arity signature problem)
+    // does not support hex/string colors
+    nashorn.eval("alternateSketch.color = function() {" +
+      "  if(arguments.length == 1) return pApplet.color(new java.lang.Float(arguments[0]));" +
+      "  else if(arguments.length == 2) return pApplet.color(new java.lang.Float(arguments[0]), new java.lang.Float(arguments[1]));" +
+      "  else if(arguments.length == 3) return pApplet.color(new java.lang.Float(arguments[0]), new java.lang.Float(arguments[1]), new java.lang.Float(arguments[2]));" +
+      "  else if(arguments.length == 4) return pApplet.color(new java.lang.Float(arguments[0]), new java.lang.Float(arguments[1]), new java.lang.Float(arguments[2]), new java.lang.Float(arguments[3]));" +
+      "}");
   }
   catch (Exception e) {
     e.printStackTrace();
