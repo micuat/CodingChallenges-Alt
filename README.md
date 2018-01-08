@@ -23,3 +23,4 @@ Differences
 1. Snake Game: none
 1. Purple Rain: none
 1. Space Invaders: `sketch.key === ' '` has to be `==` because in Nashorn `sketch.key` is a `java.lang.Character` object whereas `' '` is evaluated as `java.lang.String`
+1. Mitosis: none
