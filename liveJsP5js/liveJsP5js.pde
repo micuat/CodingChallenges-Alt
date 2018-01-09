@@ -46,8 +46,8 @@ void setup() {
   surface.setResizable(true);
   frameRate(60);
 
-  scriptPaths.add(sketchPath("../CC_Alt_06_Mitosis/cell.js"));
-  scriptPaths.add(sketchPath("../CC_Alt_06_Mitosis/sketch.js"));
+  scriptPaths.add(sketchPath("../CC_07_SolarSystemGenerator/planet.js"));
+  scriptPaths.add(sketchPath("../CC_07_SolarSystemGenerator/sketch.js"));
 
   initNashorn();
 }
@@ -112,6 +112,12 @@ void initNashorn() {
       "  return Math.min(Math.max(x, xl), xh);" +
       "}");
 
+    // overwrite ellipse for short handed circle
+    nashorn.eval("alternateSketch.ellipse = function() {" +
+      "  if(arguments.length == 3) return pApplet.ellipse(arguments[0], arguments[1], arguments[2], arguments[2]);" +
+      "  if(arguments.length == 4) return pApplet.ellipse(arguments[0], arguments[1], arguments[2], arguments[3]);" +
+      "}");
+    
     // createVector
     nashorn.eval("alternateSketch.createVector = function(x, y, z) { return new Packages.processing.core.PVector(x, y, z); }");
 
@@ -129,10 +135,10 @@ void initNashorn() {
 
     // utility
     // avoids standard functions like setup/draw/... as they will be overwritten in the script
-    // also avoids color to treat separately
+    // also avoids ellipse, color to define separately
     nashorn.eval("this.isReservedFunction = function (str) {" +
       "  var isArgument_ = function (element) { return str === element; };" +
-      "  return ['color', 'setup', 'draw', 'keyPressed', 'keyReleased', 'keyTyped', 'mouseClicked', 'mouseDragged', 'mouseMoved', 'mousePressed', 'mouseReleased', 'mouseWheel', 'oscEvent'].some(isArgument_);" +
+      "  return ['ellipse', 'color', 'setup', 'draw', 'keyPressed', 'keyReleased', 'keyTyped', 'mouseClicked', 'mouseDragged', 'mouseMoved', 'mousePressed', 'mouseReleased', 'mouseWheel', 'oscEvent'].some(isArgument_);" +
       "}");
 
     // p5js entry point
