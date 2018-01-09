@@ -46,8 +46,8 @@ void setup() {
   surface.setResizable(true);
   frameRate(60);
 
-  scriptPaths.add(sketchPath("../CC_06_Mitosis/cell.js"));
-  scriptPaths.add(sketchPath("../CC_06_Mitosis/sketch.js"));
+  scriptPaths.add(sketchPath("../CC_Alt_06_Mitosis/cell.js"));
+  scriptPaths.add(sketchPath("../CC_Alt_06_Mitosis/sketch.js"));
 
   initNashorn();
 }
