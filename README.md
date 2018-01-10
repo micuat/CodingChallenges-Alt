@@ -34,4 +34,5 @@ Differences
     * p5.js does not use `beginDraw` / `endDraw`
 1. Solar System Generator 3D
     * since p5.js version doesn't exist, the code is ported from Processing version
-    * since `this` is not `PApplet` in Nashorn, `pApplet.that` is assigned to `PApplet` as a workaround
+    * since `this` is not `PApplet` in Nashorn, `pApplet.that` is assigned to `PApplet` as a workaround to instantiate `PeasyCam`
+    * included `PeasyCam` in liveJs but ideally this should be configured in JavaScript. But Processing IDE needs to be hacked to achieve this
