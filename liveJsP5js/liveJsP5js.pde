@@ -46,8 +46,8 @@ void setup() {
   surface.setResizable(true);
   frameRate(60);
 
-  scriptPaths.add(sketchPath("../CC_07_SolarSystemGenerator/planet.js"));
-  scriptPaths.add(sketchPath("../CC_07_SolarSystemGenerator/sketch.js"));
+  scriptPaths.add(sketchPath("../CC_Alt_07_SolarSystemGenerator/planet.js"));
+  scriptPaths.add(sketchPath("../CC_Alt_07_SolarSystemGenerator/sketch.js"));
 
   initNashorn();
 }
