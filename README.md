@@ -32,3 +32,6 @@ Differences
     * Nashorn in Java shipped with Processing does not support keywords like `let` / `class`
     * LiveJS doesn't have `PGraphics.push` / `pop` yet
     * p5.js does not use `beginDraw` / `endDraw`
+1. Solar System Generator 3D
+    * since p5.js version doesn't exist, the code is ported from Processing version
+    * since `this` is not `PApplet` in Nashorn, `pApplet.that` is assigned to `PApplet` as a workaround

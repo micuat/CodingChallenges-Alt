@@ -18,6 +18,8 @@ import java.nio.charset.StandardCharsets;
 import java.util.Scanner;
 import processing.awt.PSurfaceAWT;
 
+import peasy.PeasyCam;
+
 import oscP5.*;
 import netP5.*;
 
@@ -35,6 +37,8 @@ private static long prevModified;
 public String drawMode = "p2d"; // "p2d" / "webgl"
 public int newWidth, newHeight;
 
+public PApplet that = this;
+
 float frameRate() {
   return frameRate;
 }
@@ -46,8 +50,8 @@ void setup() {
   surface.setResizable(true);
   frameRate(60);
 
-  scriptPaths.add(sketchPath("../CC_Alt_07_SolarSystemGenerator/planet.js"));
-  scriptPaths.add(sketchPath("../CC_Alt_07_SolarSystemGenerator/sketch.js"));
+  scriptPaths.add(sketchPath("../CC_08_SolarSystemGenerator3D/Planet.js"));
+  scriptPaths.add(sketchPath("../CC_08_SolarSystemGenerator3D/sketch.js"));
 
   initNashorn();
 }
@@ -117,7 +121,7 @@ void initNashorn() {
       "  if(arguments.length == 3) return pApplet.ellipse(arguments[0], arguments[1], arguments[2], arguments[2]);" +
       "  if(arguments.length == 4) return pApplet.ellipse(arguments[0], arguments[1], arguments[2], arguments[3]);" +
       "}");
-    
+
     // createVector
     nashorn.eval("alternateSketch.createVector = function(x, y, z) { return new Packages.processing.core.PVector(x, y, z); }");
 
@@ -147,7 +151,9 @@ void initNashorn() {
     // p5.Vector
     nashorn.eval("p5.Vector = {};");
     // random2D dirty fix - all the PVector functions should be bound to p5.Vector
-    nashorn.eval("p5.Vector.random2D = function(x, y) { return Packages.processing.core.PVector.random2D(); }");
+    nashorn.eval("p5.Vector.random2D = function() { return Packages.processing.core.PVector.random2D(); }");
+    // random3D dirty fix
+    nashorn.eval("p5.Vector.random3D = function() { return Packages.processing.core.PVector.random3D(); }");
 
     // overwrite color (int/float arity signature problem)
     // does not support hex/string colors
@@ -175,7 +181,7 @@ void draw() {
 
   try {
     nashorn.eval("for(var prop in pApplet) {if(!this.isReservedFunction(prop)) {alternateSketch[prop] = pApplet[prop]}}");
-    if(drawMode == "webgl") {
+    if (drawMode == "webgl") {
       translate(width / 2, height / 2);
     }
     nashorn.eval("alternateSketch.draw();");
