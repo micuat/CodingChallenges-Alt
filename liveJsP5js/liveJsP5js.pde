@@ -50,8 +50,8 @@ void setup() {
   surface.setResizable(true);
   frameRate(60);
 
-  scriptPaths.add(sketchPath("../CC_Alt_09_SolarSystemGenerator3D_texture/Planet.js"));
-  scriptPaths.add(sketchPath("../CC_Alt_09_SolarSystemGenerator3D_texture/sketch.js"));
+  scriptPaths.add(sketchPath("../CC_10_Maze_DFS/cell.js"));
+  scriptPaths.add(sketchPath("../CC_10_Maze_DFS/sketch.js"));
 
   initNashorn();
 }
