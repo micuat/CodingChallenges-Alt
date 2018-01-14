@@ -12,6 +12,8 @@
 // Recursive backtracker
 // https://en.wikipedia.org/wiki/Maze_generation_algorithm
 
+// instance mode by Naoto Hieda
+
 function Cell(sketch, i, j) {
   this.i = i;
   this.j = j;

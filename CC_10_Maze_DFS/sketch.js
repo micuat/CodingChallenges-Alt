@@ -12,6 +12,8 @@
 // Recursive backtracker
 // https://en.wikipedia.org/wiki/Maze_generation_algorithm
 
+// instance mode by Naoto Hieda
+
 var cols, rows;
 var w = 20;
 var grid = [];
