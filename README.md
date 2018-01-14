@@ -40,3 +40,6 @@ Differences
 1. Maze DFS: none
 1. Perlin Noise Terrain:
     * z is flipped because `rotateX` rotates opposite directions in Processing and p5.js???
+1. Lorenz Attractor:
+    * `let` -> `var`
+    * `for (var ... of ...)` not supported
