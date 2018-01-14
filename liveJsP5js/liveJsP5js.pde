@@ -50,8 +50,8 @@ void setup() {
   surface.setResizable(true);
   frameRate(60);
 
-  scriptPaths.add(sketchPath("../CC_10_Maze_DFS/cell.js"));
-  scriptPaths.add(sketchPath("../CC_10_Maze_DFS/sketch.js"));
+  scriptPaths.add(sketchPath("../CC_Alt_10_Maze_DFS/cell.js"));
+  scriptPaths.add(sketchPath("../CC_Alt_10_Maze_DFS/sketch.js"));
 
   initNashorn();
 }
