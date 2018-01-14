@@ -50,7 +50,7 @@ void setup() {
   surface.setResizable(true);
   frameRate(60);
 
-  scriptPaths.add(sketchPath("../CC_12_LorenzAttractor/sketch.js"));
+  scriptPaths.add(sketchPath("../CC_Alt_12_LorenzAttractor/sketch.js"));
 
   initNashorn();
 }
@@ -148,7 +148,7 @@ void initNashorn() {
     nashorn.eval("var p5 = function(sketch) {sketch(alternateSketch); globalSketch = alternateSketch;}");
 
     // p5.Vector
-    nashorn.eval("p5.Vector = Packages.Processing.core.PVector;");
+    nashorn.eval("p5.Vector = Packages.processing.core.PVector;");
     // random2D dirty fix - all the PVector functions should be bound to p5.Vector
     nashorn.eval("p5.Vector.random2D = function() { return Packages.processing.core.PVector.random2D(); }");
     // random3D dirty fix
