@@ -37,3 +37,6 @@ Differences
     * since `this` is not `PApplet` in Nashorn, `pApplet.that` is assigned to `PApplet` as a workaround to instantiate `PeasyCam`
     * included `PeasyCam` in liveJs but ideally this should be configured in JavaScript. But Processing IDE needs to be hacked to achieve this
 1. Solar System Generator 3D Texture: same as above
+1. Maze DFS: none
+1. Perlin Noise Terrain:
+    * z is flipped because `rotateX` rotates opposite directions in Processing and p5.js???
