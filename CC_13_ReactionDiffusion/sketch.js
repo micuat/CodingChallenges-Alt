@@ -50,6 +50,7 @@ var s = function (sketch) {
   }
 
   sketch.draw = function () {
+    console.log(sketch.frameRate())
     sketch.background(51);
 
     for (var x = 1; x < sketch.width - 1; x++) {
@@ -81,7 +82,7 @@ var s = function (sketch) {
         var c = sketch.floor((a - b) * 255);
         c = sketch.constrain(c, 0, 255);
         if(sketch.isLiveJs == true) {
-          sketch.pixels[pix/4] = sketch.color(c, c, c, 255);
+          sketch.pixels[(x + y * sketch.width)] = pApplet.color(c);
         }
         else {
           sketch.pixels[pix + 0] = c;
