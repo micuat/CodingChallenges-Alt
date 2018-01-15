@@ -50,7 +50,7 @@ void setup() {
   surface.setResizable(true);
   frameRate(60);
 
-  scriptPaths.add(sketchPath("../CC_Alt_12_LorenzAttractor/sketch.js"));
+  scriptPaths.add(sketchPath("../CC_13_ReactionDiffusion/sketch.js"));
 
   initNashorn();
 }
@@ -135,6 +135,9 @@ void initNashorn() {
       "  alternateSketch.width = w; alternateSketch.height = h;" +
       "  pApplet.newWidth = w; pApplet.newHeight = h; pApplet.drawMode = mode;" +
       "}");
+
+    // define const to tell if it's livejs or p5.js
+    nashorn.eval("alternateSketch.isLiveJs = true;");
 
     // utility
     // avoids standard functions like setup/draw/... as they will be overwritten in the script
