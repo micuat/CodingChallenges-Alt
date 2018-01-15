@@ -44,5 +44,5 @@ Differences
     * `let` -> `var`
     * `for (var ... of ...)` not supported
 1. Reaction Diffusion:
-    * p5.js `pixels` is an array of R,G,B,A,R,G,... whereas in Processing `pixels` is an array of `color`
-    * added `sketch.isLiveJs` constant as workaround
+    * p5.js `pixels` is an array of R,G,B,A,R,G,... whereas in Processing `pixels` is an array of `color` -> added `sketch.isLiveJs` constant as workaround
+    * `pixelDensity` cannot be set in JavaScript
