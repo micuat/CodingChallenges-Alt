@@ -49,3 +49,8 @@ Differences
     * `sketch.color` is (ridiculously) slow
 1. Fractal Tree
     * dom slider replaced by `mouseX`
+1. Fractal Tree Array: none
+1. L-System:
+    * dom replaced by mouse pressed
+    * noLoop is difficult because of the design of LiveJs so instead `turtle()` is called every frame
+    * `resetMatrix()` seems messing up something...

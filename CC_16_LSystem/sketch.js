@@ -47,7 +47,7 @@ var s = function (sketch) {
 
   sketch.turtle = function () {
     sketch.background(51);
-    sketch.resetMatrix();
+    // sketch.resetMatrix();
     sketch.translate(sketch.width / 2, sketch.height);
     sketch.stroke(255, 100);
     for (var i = 0; i < sentence.length; i++) {
@@ -76,8 +76,13 @@ var s = function (sketch) {
     sketch.turtle();
   }
 
+  sketch.draw = function () {
+    sketch.turtle();
+  }
+
   sketch.mousePressed = function () {
     sketch.generate();
+    console.log(sentence);
   }
 
 };

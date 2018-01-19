@@ -50,7 +50,7 @@ void setup() {
   surface.setResizable(true);
   frameRate(60);
 
-  scriptPaths.add(sketchPath("../CC_13_ReactionDiffusion/sketch.js"));
+  scriptPaths.add(sketchPath("../CC_16_LSystem/sketch.js"));
 
   initNashorn();
 }
@@ -186,7 +186,8 @@ void draw() {
     if (drawMode == "webgl") {
       translate(width / 2, height / 2);
     }
-    nashorn.eval("alternateSketch.draw();");
+    if(nashorn.eval("alternateSketch.draw") != null)
+      nashorn.eval("alternateSketch.draw();");
   }
   catch (ScriptException e) {
     e.printStackTrace();
