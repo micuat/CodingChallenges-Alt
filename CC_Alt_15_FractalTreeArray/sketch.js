@@ -10,13 +10,16 @@ var leaves = [];
 
 var count = 0;
 
+var curTime = 0;
+var curLevel = 0;
+
 var s = function (sketch) {
 
   sketch.setup = function () {
     sketch.createCanvas(800, 800);
     var a = sketch.createVector(sketch.width / 2, sketch.height);
     var b = sketch.createVector(sketch.width / 2, sketch.height - 200);
-    var root = new Branch(sketch, a, b);
+    var root = new Branch(sketch, a, b, 0);
 
     tree[0] = root;
   }
@@ -29,26 +32,30 @@ var s = function (sketch) {
       }
       tree[i].finished = true;
     }
-    count++;
-
-    if (count === 6) {
-      for (var i = 0; i < tree.length; i++) {
-        if (!tree[i].finished) {
-          var leaf = tree[i].end.copy();
-          leaves.push(leaf);
-        }
-      }
-    }
-
   }
 
   sketch.draw = function () {
+    curTime = (sketch.millis() / 1000) % 8;
+    var prevLevel = curLevel;
+    curLevel = Math.floor(curTime);
+    curTime = curTime % 1;
+    if(prevLevel >= 7 && curLevel < 1) {
+      var a = sketch.createVector(sketch.width / 2, sketch.height);
+      var b = sketch.createVector(sketch.width / 2, sketch.height - 200);
+      var root = new Branch(sketch, a, b, 0);
+      tree = [root];
+      count = 0;
+    }
+    else if (prevLevel < curLevel) {
+      sketch.mousePressed();
+    }
+
     sketch.background(0);
 
     for (var i = 0; i < tree.length; i++) {
       tree[i].show();
-      if(tree[i].finished) 
-      tree[i].jitter();
+      // if(tree[i].finished) 
+      // tree[i].jitter();
     }
 
     for (var i = 0; i < leaves.length; i++) {
