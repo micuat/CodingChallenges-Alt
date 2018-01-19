@@ -50,7 +50,10 @@ void setup() {
   surface.setResizable(true);
   frameRate(60);
 
-  scriptPaths.add(sketchPath("../CC_16_LSystem/sketch.js"));
+  scriptPaths.add(sketchPath("../CC_17_SpaceColonizer/branch.js"));
+  scriptPaths.add(sketchPath("../CC_17_SpaceColonizer/leaf.js"));
+  scriptPaths.add(sketchPath("../CC_17_SpaceColonizer/tree.js"));
+  scriptPaths.add(sketchPath("../CC_17_SpaceColonizer/sketch.js"));
 
   initNashorn();
 }
@@ -122,7 +125,10 @@ void initNashorn() {
       "}");
 
     // createVector
-    nashorn.eval("alternateSketch.createVector = function(x, y, z) { return new Packages.processing.core.PVector(x, y, z); }");
+    nashorn.eval("alternateSketch.createVector = function(x, y, z) {" +
+      "  if(z == null) z = 0;" +
+      "  return new Packages.processing.core.PVector(x, y, z);" +
+      "}");
 
     // push / pop
     nashorn.eval("alternateSketch.push = function() {alternateSketch.pushMatrix(); alternateSketch.pushStyle();}");
