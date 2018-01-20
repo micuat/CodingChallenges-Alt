@@ -55,3 +55,5 @@ Differences
     * noLoop is difficult because of the design of LiveJs so instead `turtle()` is called every frame
     * `resetMatrix()` seems messing up something...
 1. Space Colonizer: none
+1. Space Colonizer 3D:
+    * `sketch.WEBGL` doesn't go well with `Peasycam` so currently conditions are messy
