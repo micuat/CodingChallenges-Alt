@@ -3,6 +3,8 @@
 // http://patreon.com/codingtrain
 // Code for: https://youtu.be/kKT0v3qhIQY
 
+// instance mode by Naoto Hieda
+
 function Branch(sketch, parent, pos, dir) {
   this.pos = pos;
   this.parent = parent;
