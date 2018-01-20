@@ -50,10 +50,10 @@ void setup() {
   surface.setResizable(true);
   frameRate(60);
 
-  scriptPaths.add(sketchPath("../CC_17_SpaceColonizer/branch.js"));
-  scriptPaths.add(sketchPath("../CC_17_SpaceColonizer/leaf.js"));
-  scriptPaths.add(sketchPath("../CC_17_SpaceColonizer/tree.js"));
-  scriptPaths.add(sketchPath("../CC_17_SpaceColonizer/sketch.js"));
+  scriptPaths.add(sketchPath("../CC_18_SpaceColonizer3D/branch.js"));
+  scriptPaths.add(sketchPath("../CC_18_SpaceColonizer3D/leaf.js"));
+  scriptPaths.add(sketchPath("../CC_18_SpaceColonizer3D/tree.js"));
+  scriptPaths.add(sketchPath("../CC_18_SpaceColonizer3D/sketch.js"));
 
   initNashorn();
 }
