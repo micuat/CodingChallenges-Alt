@@ -13,11 +13,8 @@ function sgn(val) {
 
 var s = function (sketch) {
 
-  var slider;
-
   sketch.setup = function () {
     sketch.createCanvas(400, 400);
-    slider = sketch.createSlider(0, 10, 2, 0.01)
   }
 
   sketch.draw = function () {
@@ -26,7 +23,7 @@ var s = function (sketch) {
 
     var a = 100;
     var b = 100;
-    var n = slider.value();
+    var n = sketch.map(sketch.mouseX, 0, sketch.width, 0, 10);
     // var r = 100;
 
     sketch.stroke(255);

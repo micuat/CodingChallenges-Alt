@@ -57,3 +57,5 @@ Differences
 1. Space Colonizer: none
 1. Space Colonizer 3D:
     * `sketch.WEBGL` doesn't go well with `Peasycam` so currently conditions are messy
+1. Superellipse:
+    * dom slider replaced by `mouseX`
