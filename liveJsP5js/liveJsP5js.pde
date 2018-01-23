@@ -20,6 +20,11 @@ import processing.awt.PSurfaceAWT;
 
 import peasy.PeasyCam;
 
+import toxi.physics3d.*;
+import toxi.physics3d.behaviors.*;
+import toxi.physics3d.constraints.*;
+import toxi.geom.*;
+
 import oscP5.*;
 import netP5.*;
 
@@ -50,10 +55,9 @@ void setup() {
   surface.setResizable(true);
   frameRate(60);
 
-  scriptPaths.add(sketchPath("../CC_18_SpaceColonizer3D/branch.js"));
-  scriptPaths.add(sketchPath("../CC_18_SpaceColonizer3D/leaf.js"));
-  scriptPaths.add(sketchPath("../CC_18_SpaceColonizer3D/tree.js"));
-  scriptPaths.add(sketchPath("../CC_18_SpaceColonizer3D/sketch.js"));
+  scriptPaths.add(sketchPath("../CC_20_Cloth3D/Particle.js"));
+  scriptPaths.add(sketchPath("../CC_20_Cloth3D/Spring.js"));
+  scriptPaths.add(sketchPath("../CC_20_Cloth3D/sketch.js"));
 
   initNashorn();
 }
