@@ -59,3 +59,6 @@ Differences
     * `sketch.WEBGL` doesn't go well with `Peasycam` so currently conditions are messy
 1. Superellipse:
     * dom slider replaced by `mouseX`
+1. Cloth:
+    * 2D: adapted [toxiclibs.js](https://github.com/hapticdata/toxiclibsjs) instead of original toxiclibs
+    * 2D: needs smart way to avoid loading toxiclibs.js every reload
