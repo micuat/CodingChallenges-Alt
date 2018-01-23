@@ -63,8 +63,9 @@ void setup() {
 }
 
 void initNashorn() {
-  engineManager = new ScriptEngineManager();
-  nashorn = engineManager.getEngineByName("nashorn");
+  String[] options = new String[] { "--language=es6" };
+  jdk.nashorn.api.scripting.NashornScriptEngineFactory  factory = new jdk.nashorn.api.scripting.NashornScriptEngineFactory();
+  nashorn = (jdk.nashorn.api.scripting.NashornScriptEngine) factory.getScriptEngine(options);
 
   try {
     // init placehoders
