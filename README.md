@@ -62,3 +62,5 @@ Differences
 1. Cloth:
     * 2D: adapted [toxiclibs.js](https://github.com/hapticdata/toxiclibsjs) instead of original toxiclibs
     * 2D: needs smart way to avoid loading toxiclibs.js every reload
+    * 3D: uses original toxiclibs
+    * 3D: couldn't figure out how to inherit `Particle` and `Spring` from toxiclibs classes
