@@ -9,21 +9,21 @@ function Planet(sketch, radius, distance, orbitspeed, angle) {
 
     this.orbit = function () {
         this.angle += this.orbitspeed;
-        for (var i in this.planets) {
+        for (let i in this.planets) {
             this.planets[i].orbit();
         }
     }
 
 
     this.spawnMoons = function (total, level) {
-        for (var i = 0; i < total; i++) {
-            var r = this.radius/(level*2);
-            var d = sketch.random(50, 150);
-            var o = sketch.random(-0.1, 0.1);
-            var a = sketch.random(sketch.TWO_PI);
+        for (let i = 0; i < total; i++) {
+            let r = this.radius/(level*2);
+            let d = sketch.random(50, 150);
+            let o = sketch.random(-0.1, 0.1);
+            let a = sketch.random(sketch.TWO_PI);
             this.planets.push(new Planet(sketch, r, d/level, o, a));
             if (level < 3) {
-                var num = Math.floor(sketch.random(0, 4));
+                let num = Math.floor(sketch.random(0, 4));
                 this.planets[i].spawnMoons(num, level+1);
             }
         }
@@ -36,7 +36,7 @@ function Planet(sketch, radius, distance, orbitspeed, angle) {
         sketch.rotate(this.angle);
         sketch.translate(this.distance, 0);
         sketch.ellipse(0, 0, this.radius*2);
-        for (var i in this.planets) {
+        for (let i in this.planets) {
             this.planets[i].show();
         }
         sketch.pop();
