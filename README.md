@@ -29,7 +29,7 @@ Differences
     * `sketch.key === ' '` has to be `==` because in Nashorn `sketch.key` is a `java.lang.Character` object whereas `' '` is evaluated as `java.lang.String`
 1. Mitosis: none
 1. Solar System Generator
-    * Nashorn in Java shipped with Processing does not support keywords like `let` / `class`
+    * Nashorn ES6 does not support `class` ?? (`let` works though)
     * LiveJS doesn't have `PGraphics.push` / `pop` yet
     * p5.js does not use `beginDraw` / `endDraw`
 1. Solar System Generator 3D
@@ -41,7 +41,6 @@ Differences
 1. Perlin Noise Terrain:
     * z is flipped because `rotateX` rotates opposite directions in Processing and p5.js???
 1. Lorenz Attractor:
-    * `let` -> `var`
     * `for (var ... of ...)` not supported
 1. Reaction Diffusion:
     * p5.js `pixels` is an array of R,G,B,A,R,G,... whereas in Processing `pixels` is an array of `color` -> added `sketch.isLiveJs` constant as workaround
