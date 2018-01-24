@@ -22,8 +22,8 @@ function Particle(sketch, x, y, z) {
   this.display = function () {
     sketch.push();
     sketch.translate(this.particle.x,this.particle.y,this.particle.z);
-    //fill(255);
-    //ellipse(x, y, 10, 10);
+    sketch.fill(255);
+    sketch.ellipse(0, 0, 10, 10);
     sketch.pop();
   }
 }
