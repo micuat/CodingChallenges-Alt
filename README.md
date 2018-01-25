@@ -62,5 +62,6 @@ Differences
     * 3D: couldn't figure out how to inherit `Particle` and `Spring` from toxiclibs classes
 1. Mandelbrot: *
     * `pixel` issue (refer to 13. Reaction Diffusion)
+1. Juliaset: none (`color` really slow)
 
 \* DOM replaced by other input/output
