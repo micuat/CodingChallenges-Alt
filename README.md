@@ -63,5 +63,6 @@ Differences
 1. Mandelbrot: *
     * `pixel` issue (refer to 13. Reaction Diffusion)
 1. Juliaset: none (`color` really slow)
+1. SuperShape 2D: none
 
 \* DOM replaced by other input/output
