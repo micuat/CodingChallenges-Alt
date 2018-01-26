@@ -5,8 +5,6 @@
 
 // instance mode by Naoto Hieda
 
-var slider;
-
 var n1 = 0.3;
 var n2 = 0.3;
 var n3 = 0.3;
@@ -20,7 +18,6 @@ var s = function (sketch) {
 
   sketch.setup = function () {
     sketch.createCanvas(400, 400);
-    slider = sketch.createSlider(0, 10, 5, 1);
   }
 
   sketch.supershape = function (theta) {
