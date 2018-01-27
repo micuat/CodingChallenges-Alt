@@ -55,9 +55,8 @@ void setup() {
   surface.setResizable(true);
   frameRate(60);
 
-  scriptPaths.add(sketchPath("../CC_20_Cloth3D/Particle.js"));
-  scriptPaths.add(sketchPath("../CC_20_Cloth3D/Spring.js"));
-  scriptPaths.add(sketchPath("../CC_20_Cloth3D/sketch.js"));
+  scriptPaths.add(sketchPath("../CC_24_PerlinNoiseFlowField/particle.js"));
+  scriptPaths.add(sketchPath("../CC_24_PerlinNoiseFlowField/sketch.js"));
 
   initNashorn();
 }
@@ -190,14 +189,14 @@ void draw() {
     e.printStackTrace();
   }
   stroke(255);
-  background(0);
+  //background(0);
 
   try {
     nashorn.eval("for(var prop in pApplet) {if(!this.isReservedFunction(prop)) {alternateSketch[prop] = pApplet[prop]}}");
     if (drawMode == "webgl") {
       translate(width / 2, height / 2);
     }
-    if(nashorn.eval("alternateSketch.draw") != null)
+    if (nashorn.eval("alternateSketch.draw") != null)
       nashorn.eval("alternateSketch.draw();");
   }
   catch (ScriptException e) {
