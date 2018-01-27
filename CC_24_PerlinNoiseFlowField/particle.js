@@ -24,7 +24,7 @@ function Particle(sketch) {
     var x = sketch.floor(this.pos.x / scl);
     var y = sketch.floor(this.pos.y / scl);
     var index = x + y * cols;
-    var force = vectors[(index+1600)%1600];
+    var force = vectors[(index+cols*rows)%(cols*rows)];
     this.applyForce(force);
   }
 
