@@ -12,15 +12,26 @@ var s = function (sketch) {
   var total = 75;
   
   sketch.setup = function () {
-    sketch.createCanvas(600, 600);
-    cam = new Packages.peasy.PeasyCam(pApplet.that, 500);
+    if(sketch.isLiveJs) {
+      cam = new Packages.peasy.PeasyCam(pApplet.that, 500);
+      sketch.createCanvas(600, 600);
+    }
+    else {
+      sketch.createCanvas(600, 600, sketch.WEBGL);
+    }
     sketch.colorMode(sketch.HSB);
   }
 
   sketch.draw = function () {
     sketch.background(0);
     sketch.noStroke();
-    sketch.lights();
+    if(sketch.isLiveJs) {
+      sketch.lights();
+    }
+    else {
+      sketch.rotateY(sketch.map(sketch.mouseX, 0, sketch.width, -sketch.HALF_PI, sketch.HALF_PI));
+      sketch.rotateX(sketch.map(sketch.mouseY, 0, sketch.height, -sketch.HALF_PI, sketch.HALF_PI));
+    }
     let r = 200;
     for (let i = 0; i < total+1; i++) {
       let lat = sketch.map(i, 0, total, 0, sketch.PI);
