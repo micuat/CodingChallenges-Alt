@@ -67,5 +67,6 @@ Differences
 1. Perlin Noise Flow Field:
     * Processing `random` seems sometimes returning out of bound value
     * cannot `background` in `setup`
+1. Sphere Geometry: none
 
 \* DOM replaced by other input/output
