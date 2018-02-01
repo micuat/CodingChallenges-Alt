@@ -68,5 +68,10 @@ Differences
     * Processing `random` seems sometimes returning out of bound value
     * cannot `background` in `setup`
 1. Sphere Geometry: none
+1. SuperShape3D:
+    * condition for `Peasycam`
+1. Fireworks:
+    * 2D: none
+    * 3D: fullscreen disabled
 
 \* DOM replaced by other input/output
