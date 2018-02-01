@@ -77,10 +77,13 @@ function Particle(sketch) {
     } else {
       sketch.strokeWeight(2);
     }
-    sketch.pushMatrix();
+    sketch.push();
     sketch.translate(this.location.x, this.location.y, this.location.z);
-    sketch.point(0, 0);
-    sketch.popMatrix();
+    if(sketch.isLiveJs)
+      sketch.point(0, 0);
+    else
+      sketch.rect(0, 0, 1, 1);
+    sketch.pop();
     //ellipse(location.x, location.y, 12, 12);
   }
 

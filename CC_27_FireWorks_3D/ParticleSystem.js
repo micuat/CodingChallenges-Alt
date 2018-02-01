@@ -31,7 +31,12 @@ function Firework (sketch) {
       this.firework.display();
 
       if (this.firework.explode()) {
-        for (let i = 0; i < 750; i++) {
+        let n;
+        if(sketch.isLiveJs)
+          n = 750;
+        else
+          n = 100;
+        for (let i = 0; i < n; i++) {
           this.particles.push(new Particle(sketch, this.firework.location, this.hu));    // Add "num" amount of particles to the arraylist
         }
         this.firework = null;
