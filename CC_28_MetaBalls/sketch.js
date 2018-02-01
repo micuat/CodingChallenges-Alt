@@ -19,6 +19,7 @@ var s = function (sketch) {
         sketch.background(51);
 
         sketch.loadPixels();
+        if (sketch.pixels == null) return;
         for (x = 0; x < sketch.width; x++) {
             for (y = 0; y < sketch.height; y++) {
                 let sum = 0;
