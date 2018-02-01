@@ -15,16 +15,6 @@ var s = function (sketch) {
 
   var cam;
 
-  sketch.supershape = function (theta, m, n1, n2, n3) {
-    var t1 = sketch.abs((1 / a) * sketch.cos(m * theta / 4));
-    t1 = sketch.pow(t1, n2);
-    var t2 = sketch.abs((1 / b) * sketch.sin(m * theta / 4));
-    t2 = sketch.pow(t2, n3);
-    var t3 = t1 + t2;
-    var r = sketch.pow(t3, - 1 / n1);
-    return r;
-  }
-
   sketch.setup = function () {
     if (sketch.isLiveJs) {
       cam = new Packages.peasy.PeasyCam(pApplet.that, 500);
