@@ -73,5 +73,6 @@ Differences
 1. Fireworks:
     * 2D: none
     * 3D: fullscreen disabled
+1. MetaBalls: none (again `color` is slow)
 
 \* DOM replaced by other input/output
