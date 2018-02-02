@@ -28,7 +28,7 @@ void main(void) {
       sum += 10 * blobs[i * 3 + 2] / d;
   }
   sum /= 255.0;
-  sum *= 0.75;
+  sum *= 0.5;
   sum *= sum;
 
   gl_FragColor = vec4(sum, sum, sum, 1) * vertColor;
