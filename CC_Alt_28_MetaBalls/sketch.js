@@ -14,7 +14,7 @@ var s = function (sketch) {
         sketch.colorMode(sketch.HSB);
         shader = sketch.loadShader("../../CC_Alt_28_MetaBalls/frag.glsl");
         for (i = 0; i < 15; i++)
-            blobs.push(new Blob(sketch, sketch.random(0, sketch.width), sketch.random(0, sketch.height)));
+            blobs.push(new Blob(sketch, i, sketch.random(0, sketch.width), sketch.random(0, sketch.height)));
     }
 
     sketch.draw = function () {
