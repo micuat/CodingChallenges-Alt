@@ -9,7 +9,7 @@ var population;
 // Each rocket is alive till 400 frames
 var lifespan = 400;
 // Made to display count on screen
-var lifeP;
+// var lifeP;
 // Keeps track of frames
 var count = 0;
 // Where rockets are trying to go
@@ -28,7 +28,7 @@ var s = function (sketch) {
   sketch.setup = function () {
     sketch.createCanvas(400, 300);
     population = new Population(sketch);
-    lifeP = sketch.createP();
+    // lifeP = sketch.createP();
     target = sketch.createVector(sketch.width / 2, 50);
 
   }
@@ -37,7 +37,7 @@ var s = function (sketch) {
     sketch.background(0);
     population.run();
     // Displays count to window
-    lifeP.html(count);
+    // lifeP.html(count);
 
     count++;
     if (count == lifespan) {
