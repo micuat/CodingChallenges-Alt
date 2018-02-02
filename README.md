@@ -74,5 +74,8 @@ Differences
     * 2D: none
     * 3D: fullscreen disabled
 1. MetaBalls: none (again `color` is slow)
+1. Smart Rockets:
+    * `createVector()` should return zero vector instead of null
+    * `random(array)` should return random element from the array
 
 \* DOM replaced by other input/output
