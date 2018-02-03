@@ -74,8 +74,7 @@ Differences
     * 2D: none
     * 3D: fullscreen disabled
 1. MetaBalls: none (again `color` is slow)
-1. Smart Rockets:
-    * `random(array)` should return random element from the array
+1. Smart Rockets: none
 1. phyllotaxis:
     * no `angleMode` in Processing
 

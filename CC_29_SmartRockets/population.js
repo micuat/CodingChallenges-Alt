@@ -48,8 +48,8 @@ function Population(sketch) {
     var newRockets = [];
     for (var i = 0; i < this.rockets.length; i++) {
       // Picks random dna
-      var parentA = this.matingpool[sketch.floor(sketch.random(this.matingpool.length))].dna;
-      var parentB = this.matingpool[sketch.floor(sketch.random(this.matingpool.length))].dna;
+      var parentA = sketch.random(this.matingpool).dna;
+      var parentB = sketch.random(this.matingpool).dna;
       // Creates child by using crossover function
       var child = parentA.crossover(parentB);
       child.mutation();

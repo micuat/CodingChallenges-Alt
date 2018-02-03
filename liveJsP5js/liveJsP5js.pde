@@ -115,8 +115,15 @@ void initNashorn() {
 
     // overwrite random
     nashorn.eval("alternateSketch.random = function() {" +
-      "  if(arguments.length == 1) return Math.random() * arguments[0];" +
-      "  if(arguments.length == 2) return sketch.map(Math.random(), 0, 1, arguments[0], arguments[1]);" +
+      "  if(arguments.length == 1) {" +
+      "    if(Array.isArray(arguments[0]) {" +
+      "      return arguments[0][sketch.floor(Math.random() * arguments[0].length)];" +
+      "    }" +
+      "    else {" +
+      "      return Math.random() * arguments[0];" +
+      "    }" +
+      "  }" +
+      "  else if(arguments.length == 2) return sketch.map(Math.random(), 0, 1, arguments[0], arguments[1]);" +
       "}");
 
     // overwrite constrain (int/float arity signature problem)
