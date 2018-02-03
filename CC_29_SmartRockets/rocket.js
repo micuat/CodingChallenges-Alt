@@ -7,8 +7,8 @@
 function Rocket(sketch, dna) {
   // Physics of rocket at current instance
   this.pos = sketch.createVector(sketch.width / 2, sketch.height);
-  this.vel = sketch.createVector(0, 0, 0);
-  this.acc = sketch.createVector(0, 0, 0);
+  this.vel = sketch.createVector();
+  this.acc = sketch.createVector();
   // Checkes rocket has reached target
   this.completed = false;
   // Checks if rocket had crashed

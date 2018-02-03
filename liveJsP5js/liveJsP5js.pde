@@ -55,8 +55,10 @@ void setup() {
   surface.setResizable(true);
   frameRate(60);
 
-  scriptPaths.add(sketchPath("../CC_24_PerlinNoiseFlowField/particle.js"));
-  scriptPaths.add(sketchPath("../CC_24_PerlinNoiseFlowField/sketch.js"));
+  scriptPaths.add(sketchPath("../CC_29_SmartRockets/dna.js"));
+  scriptPaths.add(sketchPath("../CC_29_SmartRockets/population.js"));
+  scriptPaths.add(sketchPath("../CC_29_SmartRockets/rocket.js"));
+  scriptPaths.add(sketchPath("../CC_29_SmartRockets/sketch.js"));
 
   initNashorn();
 }
@@ -129,8 +131,10 @@ void initNashorn() {
       "}");
 
     // createVector
-    nashorn.eval("alternateSketch.createVector = function(x, y, z) {" +
-      "  if(z == null) z = 0;" +
+    nashorn.eval("alternateSketch.createVector = function() {" +
+      "  let x = 0, y = 0, z = 0;" +
+      "  if(arguments.length == 2) {x = arguments[0]; y = arguments[1];}" +
+      "  else if(arguments.length == 3) {x = arguments[0]; y = arguments[1]; z = arguments[2];}" +
       "  return new Packages.processing.core.PVector(x, y, z);" +
       "}");
 
