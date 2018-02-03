@@ -77,5 +77,7 @@ Differences
 1. Smart Rockets:
     * `createVector()` should return zero vector instead of null
     * `random(array)` should return random element from the array
+1. phyllotaxis:
+    * no `angleMode` in Processing
 
 \* DOM replaced by other input/output
