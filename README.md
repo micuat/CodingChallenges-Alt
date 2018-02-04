@@ -77,5 +77,6 @@ Differences
 1. Smart Rockets: none
 1. phyllotaxis:
     * no `angleMode` in Processing
+1. Flappy Bird: none
 
 \* DOM replaced by other input/output
