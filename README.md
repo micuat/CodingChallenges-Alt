@@ -78,5 +78,6 @@ Differences
 1. phyllotaxis:
     * no `angleMode` in Processing
 1. Flappy Bird: none
+1. agar.io: none (socket.io version skipped)
 
 \* DOM replaced by other input/output
