@@ -55,10 +55,8 @@ void setup() {
   surface.setResizable(true);
   frameRate(60);
 
-  scriptPaths.add(sketchPath("../CC_29_SmartRockets/dna.js"));
-  scriptPaths.add(sketchPath("../CC_29_SmartRockets/population.js"));
-  scriptPaths.add(sketchPath("../CC_29_SmartRockets/rocket.js"));
-  scriptPaths.add(sketchPath("../CC_29_SmartRockets/sketch.js"));
+  scriptPaths.add(sketchPath("../CC_34_DLA/walker.js"));
+  scriptPaths.add(sketchPath("../CC_34_DLA/sketch.js"));
 
   initNashorn();
 }
@@ -116,14 +114,15 @@ void initNashorn() {
     // overwrite random
     nashorn.eval("alternateSketch.random = function() {" +
       "  if(arguments.length == 1) {" +
-      "    if(Array.isArray(arguments[0]) {" +
-      "      return arguments[0][sketch.floor(Math.random() * arguments[0].length)];" +
+      "    if(Array.isArray(arguments[0])) {" +
+      "      let index = Math.floor(Math.random() * arguments[0].length);" +
+      "      return arguments[0][index];" +
       "    }" +
       "    else {" +
       "      return Math.random() * arguments[0];" +
       "    }" +
       "  }" +
-      "  else if(arguments.length == 2) return sketch.map(Math.random(), 0, 1, arguments[0], arguments[1]);" +
+      "  else if(arguments.length == 2) return alternateSketch.map(Math.random(), 0, 1, arguments[0], arguments[1]);" +
       "}");
 
     // overwrite constrain (int/float arity signature problem)
@@ -165,7 +164,7 @@ void initNashorn() {
     // also avoids ellipse, color to define separately
     nashorn.eval("this.isReservedFunction = function (str) {" +
       "  var isArgument_ = function (element) { return str === element; };" +
-      "  return ['ellipse', 'color', 'setup', 'draw', 'keyPressed', 'keyReleased', 'keyTyped', 'mouseClicked', 'mouseDragged', 'mouseMoved', 'mousePressed', 'mouseReleased', 'mouseWheel', 'oscEvent'].some(isArgument_);" +
+      "  return ['ellipse', 'color', 'random', 'setup', 'draw', 'keyPressed', 'keyReleased', 'keyTyped', 'mouseClicked', 'mouseDragged', 'mouseMoved', 'mousePressed', 'mouseReleased', 'mouseWheel', 'oscEvent'].some(isArgument_);" +
       "}");
 
     // p5js entry point
@@ -180,6 +179,7 @@ void initNashorn() {
 
     // overwrite color (int/float arity signature problem)
     // does not support hex/string colors
+    // but this is SLOW
     nashorn.eval("alternateSketch.color = function() {" +
       "  if(arguments.length == 1) return pApplet.color(new java.lang.Float(arguments[0]));" +
       "  else if(arguments.length == 2) return pApplet.color(new java.lang.Float(arguments[0]), new java.lang.Float(arguments[1]));" +
