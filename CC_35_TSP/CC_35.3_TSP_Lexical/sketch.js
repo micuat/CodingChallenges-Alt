@@ -6,7 +6,7 @@
 // instance mode by Naoto Hieda
 
 var cities = [];
-var totalCities = 5;
+var totalCities = 10;
 
 var order = [];
 
