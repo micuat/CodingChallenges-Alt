@@ -79,5 +79,10 @@ Differences
     * no `angleMode` in Processing
 1. Flappy Bird: none
 1. agar.io: none (socket.io version skipped)
+1. Posson Disc: none
+1. DLA: none
+1. TSP:
+    * 1: none
+    * 2: `splice(index)` behaves differently in [nashorn](https://bugs.openjdk.java.net/browse/JDK-8023252)
 
 \* DOM replaced by other input/output
