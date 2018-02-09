@@ -87,5 +87,6 @@ Differences
     * 4: no `shuffle()` in Processing
     * 4: no `Array.prototype.includes()` in nashorn
     * 4: cannot call `ellipse()` between `beginShape`/`endShape` in Processing
+1. Blobby: none
 
 \* DOM replaced by other input/output
