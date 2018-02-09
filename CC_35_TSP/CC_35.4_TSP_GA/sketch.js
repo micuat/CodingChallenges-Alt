@@ -24,9 +24,19 @@ var s = function (sketch) {
     }
 
     for (var i = 0; i < popSize; i++) {
-      population[i] = sketch.shuffle(order);
+      // population[i] = sketch.shuffle(order);
+      population[i] = [];
+      let remainingIndices = [];
+      for (let j in order) {
+        remainingIndices.push(j);
+      }
+      for (let j in order) {
+        let index = sketch.floor(sketch.random(remainingIndices.length));
+        population[i].push(order[remainingIndices[index]]);
+        remainingIndices.splice(index, 1);
+      }
     }
-    statusP = sketch.createP('').style('font-size', '32pt');
+    //statusP = sketch.createP('').style('font-size', '32pt');
   }
 
   sketch.draw = function () {

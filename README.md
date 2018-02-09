@@ -83,6 +83,7 @@ Differences
 1. DLA: none
 1. TSP:
     * 1: none
-    * 2: `splice(index)` behaves differently in [nashorn](https://bugs.openjdk.java.net/browse/JDK-8023252)
+    * 2, 3: `splice(index)` behaves differently in [nashorn](https://bugs.openjdk.java.net/browse/JDK-8023252)
+    * 4: no `shuffle()` in Processing
 
 \* DOM replaced by other input/output
