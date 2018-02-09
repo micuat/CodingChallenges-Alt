@@ -85,5 +85,7 @@ Differences
     * 1: none
     * 2, 3: `splice(index)` behaves differently in [nashorn](https://bugs.openjdk.java.net/browse/JDK-8023252)
     * 4: no `shuffle()` in Processing
+    * 4: no `Array.prototype.includes()` in nashorn
+    * 4: cannot call `ellipse()` between `beginShape`/`endShape` in Processing
 
 \* DOM replaced by other input/output
