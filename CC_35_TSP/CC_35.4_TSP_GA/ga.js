@@ -61,7 +61,7 @@ function crossOver(sketch, orderA, orderB) {
   // var left = totalCities - neworder.length;
   for (var i = 0; i < orderB.length; i++) {
     var city = orderB[i];
-    if (!neworder.includes(city)) {
+    if (neworder.indexOf(city) == -1) {
       neworder.push(city);
     }
   }
