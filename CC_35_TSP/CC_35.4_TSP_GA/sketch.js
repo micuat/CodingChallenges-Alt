@@ -54,9 +54,12 @@ var s = function (sketch) {
     for (var i = 0; i < bestEver.length; i++) {
       var n = bestEver[i];
       sketch.vertex(cities[n].x, cities[n].y);
-      sketch.ellipse(cities[n].x, cities[n].y, 16, 16);
     }
     sketch.endShape();
+    for (var i = 0; i < bestEver.length; i++) {
+      var n = bestEver[i];
+      sketch.ellipse(cities[n].x, cities[n].y, 16, 16);
+    }
 
     sketch.translate(0, sketch.height / 2);
     sketch.stroke(255);
@@ -66,9 +69,12 @@ var s = function (sketch) {
     for (var i = 0; i < currentBest.length; i++) {
       var n = currentBest[i];
       sketch.vertex(cities[n].x, cities[n].y);
-      sketch.ellipse(cities[n].x, cities[n].y, 16, 16);
     }
     sketch.endShape();
+    for (var i = 0; i < currentBest.length; i++) {
+      var n = currentBest[i];
+      sketch.ellipse(cities[n].x, cities[n].y, 16, 16);
+    }
 
 
 
