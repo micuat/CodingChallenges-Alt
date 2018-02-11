@@ -88,5 +88,8 @@ Differences
     * 4: no `Array.prototype.includes()` in nashorn
     * 4: cannot call `ellipse()` between `beginShape`/`endShape` in Processing
 1. Blobby: none
+1. Diastic: \*\*
+1. Word Interacter: \*\*
 
-\* DOM replaced by other input/output
+\* DOM replaced by other input/output  
+\*\* HTML5 example, no LiveJS version
