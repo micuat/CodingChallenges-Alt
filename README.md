@@ -90,6 +90,8 @@ Differences
 1. Blobby: none
 1. Diastic: \*\*
 1. Word Interacter: \*\*
+1. Madlibs: Alt skipped \*\*
+1. TF-IDF: \*\*
 
 \* DOM replaced by other input/output  
 \*\* HTML5 example, no LiveJS version
