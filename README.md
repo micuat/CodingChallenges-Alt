@@ -92,6 +92,9 @@ Differences
 1. Word Interacter: \*\*
 1. Madlibs: Alt skipped \*\*
 1. TF-IDF: \*\*
+1. Clappy Bird: \*\*
+1. Markov Chain Names: \*\*
+1. Context Free Grammar: \*\*
 
 \* DOM replaced by other input/output  
 \*\* HTML5 example, no LiveJS version
