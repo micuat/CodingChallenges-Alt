@@ -95,6 +95,10 @@ Differences
 1. Clappy Bird: \*\*
 1. Markov Chain Names: \*\*
 1. Context Free Grammar: \*\*
+1. Sentiment Analysis: Alt skipped  \*\*
+1. Firebase Saving Drawing: Instance/Alt skipped
+1. Asteroids:
+    * LiveJS does not have `windowWidth`/`windowHeight`
 
 \* DOM replaced by other input/output  
 \*\* HTML5 example, no LiveJS version
