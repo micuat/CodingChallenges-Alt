@@ -99,6 +99,8 @@ Differences
 1. Firebase Saving Drawing: Instance/Alt skipped
 1. Asteroids:
     * LiveJS does not have `windowWidth`/`windowHeight`
+1. Pixel Sorting: none
+1. Tweets by Month: \*\*
 
 \* DOM replaced by other input/output  
 \*\* HTML5 example, no LiveJS version
