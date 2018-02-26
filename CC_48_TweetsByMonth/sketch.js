@@ -36,6 +36,14 @@ var s = function (sketch) {
 
 
   sketch.setup = function () {
+    if(sketch.isLiveJs) {
+      let strings = sketch.loadStrings('../CC_48_TweetsByMonth/flotus.json');
+      let json = "";
+      for(let i in strings) {
+        json += strings[i] + "\n";
+      }
+      potus = JSON.parse(json);
+    }
     sketch.createCanvas(600, 400);
     var tweets = potus.tweets;
     // Look at every tweet
@@ -77,6 +85,9 @@ var s = function (sketch) {
       }
 
     }
+  }
+
+  sketch.draw = function () {
     sketch.background(0);
 
     // Reverse the order

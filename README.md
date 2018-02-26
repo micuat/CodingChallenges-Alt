@@ -100,7 +100,8 @@ Differences
 1. Asteroids:
     * LiveJS does not have `windowWidth`/`windowHeight`
 1. Pixel Sorting: none
-1. Tweets by Month: \*\*
+1. Tweets by Month:
+    * draw functions moved from `setup` to `draw`
 
 \* DOM replaced by other input/output  
 \*\* HTML5 example, no LiveJS version
