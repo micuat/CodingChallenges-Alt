@@ -102,6 +102,9 @@ Differences
 1. Pixel Sorting: none
 1. Tweets by Month:
     * draw functions moved from `setup` to `draw`
+1. Obama Mosaic: skipped as dataset was not found
+1. Circle Packing Animated:
+    * 1a: none
 
 \* DOM replaced by other input/output  
 \*\* HTML5 example, no LiveJS version
