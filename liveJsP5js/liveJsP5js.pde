@@ -55,8 +55,8 @@ void setup() {
   surface.setResizable(true);
   frameRate(60);
 
-  scriptPaths.add(sketchPath("../CC_34_DLA/walker.js"));
-  scriptPaths.add(sketchPath("../CC_34_DLA/sketch.js"));
+  scriptPaths.add(sketchPath("../CC_50_1b_CirclePackingAnimatedText/circle.js"));
+  scriptPaths.add(sketchPath("../CC_50_1b_CirclePackingAnimatedText/sketch.js"));
 
   initNashorn();
 }

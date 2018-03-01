@@ -105,6 +105,9 @@ Differences
 1. Obama Mosaic: skipped as dataset was not found
 1. Circle Packing Animated:
     * 1a: none
+    * 1b: p5 does not have preload
+    * 1b: p5 / p5js have different pixel order
+    * 1b: p5 cannot set color with `color(string)`
 
 \* DOM replaced by other input/output  
 \*\* HTML5 example, no LiveJS version
