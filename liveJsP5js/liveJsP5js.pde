@@ -55,8 +55,8 @@ void setup() {
   surface.setResizable(true);
   frameRate(60);
 
-  scriptPaths.add(sketchPath("../CC_50_1b_CirclePackingAnimatedText/circle.js"));
-  scriptPaths.add(sketchPath("../CC_50_1b_CirclePackingAnimatedText/sketch.js"));
+  scriptPaths.add(sketchPath("../CC_51_astar/spot.js"));
+  scriptPaths.add(sketchPath("../CC_51_astar/sketch.js"));
 
   initNashorn();
 }
@@ -74,6 +74,9 @@ void initNashorn() {
     // calling Object.bindProperties(global, this);
     // which will "bind" properties of the PApplet object
     ((Invocable)nashorn).invokeMethod(jsObject, "bindProperties", global, (PApplet)this);
+    
+    // Array.prototype.includes
+    nashorn.eval("Array.prototype.includes = function (val){return this.indexOf(val) != -1;}");
 
     // console.log is print
     nashorn.eval("var console = {}; console.log = print;");

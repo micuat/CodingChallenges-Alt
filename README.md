@@ -85,7 +85,6 @@ Differences
     * 1: none
     * 2, 3: `splice(index)` behaves differently in [nashorn](https://bugs.openjdk.java.net/browse/JDK-8023252)
     * 4: no `shuffle()` in Processing
-    * 4: no `Array.prototype.includes()` in nashorn
     * 4: cannot call `ellipse()` between `beginShape`/`endShape` in Processing
 1. Blobby: none
 1. Diastic: \*\*
@@ -108,6 +107,8 @@ Differences
     * 1b: p5 does not have preload
     * 1b: p5 / p5js have different pixel order
     * 1b: p5 cannot set color with `color(string)`
+    * 2: p5 does not have preload
+1. A Star: none
 
 \* DOM replaced by other input/output  
 \*\* HTML5 example, no LiveJS version
