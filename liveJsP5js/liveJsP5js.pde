@@ -55,8 +55,7 @@ void setup() {
   surface.setResizable(true);
   frameRate(60);
 
-  scriptPaths.add(sketchPath("../CC_51_astar/spot.js"));
-  scriptPaths.add(sketchPath("../CC_51_astar/sketch.js"));
+  scriptPaths.add(sketchPath("../CC_Alt_53_random_walk_levy/sketch.js"));
 
   initNashorn();
 }
