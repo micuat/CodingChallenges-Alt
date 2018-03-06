@@ -109,6 +109,8 @@ Differences
     * 1b: p5 cannot set color with `color(string)`
     * 2: p5 does not have preload
 1. A Star: none
+1. Random Walk:
+    * background color not properly set
 
 \* DOM replaced by other input/output  
 \*\* HTML5 example, no LiveJS version
