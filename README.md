@@ -111,6 +111,8 @@ Differences
 1. A Star: none
 1. Random Walk:
     * background color not properly set
+1. Random Walk Levy:
+    * background color not properly set
 
 \* DOM replaced by other input/output  
 \*\* HTML5 example, no LiveJS version
