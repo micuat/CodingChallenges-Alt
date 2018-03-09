@@ -23,8 +23,8 @@ var s = function (sketch) {
     sketch.createCanvas(400, 400);
     //angleMode(DEGREES);
     sketch.background(51);
-    deltaSlider = sketch.createSlider(0, 25, 10);
-    angleSlider = sketch.createSlider(0, 90, 75);
+    // deltaSlider = sketch.createSlider(0, 25, 10);
+    // angleSlider = sketch.createSlider(0, 90, 75);
 
     var inc = 100;
     for (var x = 0; x < sketch.width; x += inc) {
@@ -42,8 +42,8 @@ var s = function (sketch) {
 
   sketch.draw = function () {
     sketch.background(51);
-    angle = angleSlider.value();
-    delta = deltaSlider.value();
+    angle = sketch.map(sketch.mouseX, 0, sketch.width, 0, 90);//angleSlider.value();
+    delta = sketch.map(sketch.mouseY, 0, sketch.height, 0, 25);//deltaSlider.value();
     //console.log(angle, delta);
     for (var i = 0; i < polys.length; i++) {
       polys[i].hankin();
