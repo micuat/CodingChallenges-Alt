@@ -115,6 +115,7 @@ Differences
     * background color not properly set
 1. Star Patterns:
     * 1: none \*
+    * 2: none \*
 
 \* DOM replaced by other input/output  
 \*\* HTML5 example, no LiveJS version
