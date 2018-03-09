@@ -14,15 +14,15 @@ var sliderN;
 var s = function (sketch) {
   sketch.setup = function () {
     sketch.createCanvas(400, 400);
-    sliderD = sketch.createSlider(1, 20, 10, 1);
-    sliderN = sketch.createSlider(1, 20, 10, 1);
-    sliderD.input(sketch.draw);
-    sliderN.input(sketch.draw);
+    // sliderD = sketch.createSlider(1, 20, 10, 1);
+    // sliderN = sketch.createSlider(1, 20, 10, 1);
+    // sliderD.input(sketch.draw);
+    // sliderN.input(sketch.draw);
   }
 
   sketch.draw = function () {
-    d = sliderD.value();
-    n = sliderN.value();
+    d = sketch.floor(sketch.map(sketch.mouseX, 0, sketch.width, 1, 20));//sliderD.value();
+    n = sketch.floor(sketch.map(sketch.mouseY, 0, sketch.height, 1, 20));//sliderN.value();
     var k = n / d;
     sketch.background(51);
     sketch.push();
@@ -40,7 +40,6 @@ var s = function (sketch) {
     }
     sketch.endShape(sketch.CLOSE);
     sketch.pop();
-    sketch.noLoop();
   }
 
   function reduceDenominator(numerator, denominator) {

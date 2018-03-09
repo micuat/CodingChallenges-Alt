@@ -116,6 +116,7 @@ Differences
 1. Star Patterns:
     * 1: none \*
     * 2: none \*
+1. Roses: none \*
 
 \* DOM replaced by other input/output  
 \*\* HTML5 example, no LiveJS version
