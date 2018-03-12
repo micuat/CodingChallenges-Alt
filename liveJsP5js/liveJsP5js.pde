@@ -55,7 +55,7 @@ void setup() {
   surface.setResizable(true);
   frameRate(60);
 
-  scriptPaths.add(sketchPath("../CC_Alt_53_random_walk_levy/sketch.js"));
+  scriptPaths.add(sketchPath("../CC_58_EarthQuakeViz3D/sketch.js"));
 
   initNashorn();
 }
@@ -75,7 +75,7 @@ void initNashorn() {
     ((Invocable)nashorn).invokeMethod(jsObject, "bindProperties", global, (PApplet)this);
     
     // Array.prototype.includes
-    nashorn.eval("Array.prototype.includes = function (val){return this.indexOf(val) != -1;}");
+    // nashorn.eval("Array.prototype.includes = function (val){return this.indexOf(val) != -1;}");
 
     // console.log is print
     nashorn.eval("var console = {}; console.log = print;");
@@ -265,6 +265,7 @@ public void readFiles(ArrayList<String> paths) throws IOException {
       }
     }
     try {
+      nashorn.eval("if(alternateSketch.preload !== undefined) alternateSketch.preload();");
       nashorn.eval("alternateSketch.setup();");
       surface.setSize(newWidth, newHeight);
     }

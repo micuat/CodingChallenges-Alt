@@ -121,6 +121,7 @@ Differences
     * p5 does not draw anything when start and end points passed to `line` are the same (in p5.js it show up as a circle)
 1. Earthquake Viz:
     * p5's `loadImage` needs second argument to specify file extension
+1. Earthquake Viz 3D: none
 
 \* DOM replaced by other input/output  
 \*\* HTML5 example, no LiveJS version
