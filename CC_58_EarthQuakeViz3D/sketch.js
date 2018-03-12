@@ -5,7 +5,7 @@
 
 // instance mode by Naoto Hieda
 
-var angle;
+var angle = 0;
 
 var table;
 var r = 200;
