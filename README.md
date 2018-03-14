@@ -122,6 +122,9 @@ Differences
 1. Earthquake Viz:
     * p5's `loadImage` needs second argument to specify file extension
 1. Earthquake Viz 3D: none
+1. Steering Text Paths:
+    * `textToPoint` replaced by geomerative
+    * geomerative does not support otf
 
 \* DOM replaced by other input/output  
 \*\* HTML5 example, no LiveJS version

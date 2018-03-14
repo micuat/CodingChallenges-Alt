@@ -55,7 +55,8 @@ void setup() {
   surface.setResizable(true);
   frameRate(60);
 
-  scriptPaths.add(sketchPath("../CC_58_EarthQuakeViz3D/sketch.js"));
+  scriptPaths.add(sketchPath("../CC_59_Steering_Text_Paths/vehicle.js"));
+  scriptPaths.add(sketchPath("../CC_59_Steering_Text_Paths/sketch.js"));
 
   initNashorn();
 }
