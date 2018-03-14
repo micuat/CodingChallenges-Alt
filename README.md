@@ -125,6 +125,7 @@ Differences
 1. Steering Text Paths:
     * `textToPoint` replaced by geomerative
     * geomerative does not support otf
+1. Butterfly Wings: none
 
 \* DOM replaced by other input/output  
 \*\* HTML5 example, no LiveJS version
