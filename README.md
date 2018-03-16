@@ -126,6 +126,8 @@ Differences
     * `textToPoint` replaced by geomerative
     * geomerative does not support otf
 1. Butterfly Wings: none
+1. Fractal Spirograph:
+    * `for (var ... of ...)` not supported
 
 \* DOM replaced by other input/output  
 \*\* HTML5 example, no LiveJS version
