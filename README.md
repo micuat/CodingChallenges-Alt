@@ -130,6 +130,7 @@ Differences
     * `for (var ... of ...)` not supported
 1. Plinko:
     * p5 does not have `loadSound`
+1. Unikitty Flag: none
 
 \* DOM replaced by other input/output  
 \*\* HTML5 example, no LiveJS version
