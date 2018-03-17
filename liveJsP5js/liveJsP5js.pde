@@ -36,6 +36,7 @@ private static ScriptEngine nashorn;
 
 public static String VERSION = "0.1";
 
+private static ArrayList<String> libPaths = new ArrayList<String>();
 private static ArrayList<String> scriptPaths = new ArrayList<String>();
 private static long prevModified;
 
@@ -55,8 +56,11 @@ void setup() {
   surface.setResizable(true);
   frameRate(60);
 
-  scriptPaths.add(sketchPath("../CC_59_Steering_Text_Paths/vehicle.js"));
-  scriptPaths.add(sketchPath("../CC_59_Steering_Text_Paths/sketch.js"));
+  libPaths.add(sketchPath("../CC_62_plinko/libraries/matter.js"));
+  scriptPaths.add(sketchPath("../CC_62_plinko/boundary.js"));
+  scriptPaths.add(sketchPath("../CC_62_plinko/particle.js"));
+  scriptPaths.add(sketchPath("../CC_62_plinko/plinko.js"));
+  scriptPaths.add(sketchPath("../CC_62_plinko/sketch.js"));
 
   initNashorn();
 }
@@ -193,6 +197,13 @@ void initNashorn() {
   catch (Exception e) {
     e.printStackTrace();
   }
+  
+  try {
+    readLibs(libPaths);
+  }
+  catch (IOException e) {
+    e.printStackTrace();
+  }
 }
 
 void draw() {
@@ -237,6 +248,21 @@ public static String readFile(String path) throws IOException {
     }
   }
   return new String(encoded, StandardCharsets.UTF_8);
+}
+
+public void readLibs(ArrayList<String> paths) throws IOException {
+  println("loading libraries");
+
+  for (String path : paths) {
+    encoded = Files.readAllBytes(Paths.get(path));
+
+    try {
+      nashorn.eval(new String(encoded, StandardCharsets.UTF_8));
+    }
+    catch (ScriptException e) {
+      e.printStackTrace();
+    }
+  }
 }
 
 public void readFiles(ArrayList<String> paths) throws IOException {

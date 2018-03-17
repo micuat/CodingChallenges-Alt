@@ -128,6 +128,8 @@ Differences
 1. Butterfly Wings: none
 1. Fractal Spirograph:
     * `for (var ... of ...)` not supported
+1. Plinko:
+    * p5 does not have `loadSound`
 
 \* DOM replaced by other input/output  
 \*\* HTML5 example, no LiveJS version
