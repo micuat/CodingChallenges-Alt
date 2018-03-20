@@ -131,6 +131,9 @@ Differences
 1. Plinko:
     * p5 does not have `loadSound`
 1. Unikitty Flag: none
+1. Forward Kinematics:
+    * 1a: Nashorn ES6 does not support `class`
+    * 1a: Java object does not have `hasOwnProperty`
 
 \* DOM replaced by other input/output  
 \*\* HTML5 example, no LiveJS version
