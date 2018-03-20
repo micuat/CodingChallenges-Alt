@@ -6,7 +6,7 @@ function Segment(sketch, point, len, angle) {
      * which behaves differently depending on the type of arguments we pass.
      */
     this.sketch = sketch;
-    if (point.hasOwnProperty("angle")) { // point is probably a Segment
+    if (point.angle !== undefined) { // point is probably a Segment
         this.par = point;
         this.a = new p5.Vector(this.par.b.x, this.par.b.y);
     } else {
