@@ -135,6 +135,7 @@ Differences
     * 1a, 1b: Nashorn ES6 does not support `class`
     * 1a, 1b: Java object does not have `hasOwnProperty`
     * 2: ported from p5
+    * 3: ported from p5
 
 \* DOM replaced by other input/output  
 \*\* HTML5 example, no LiveJS version
