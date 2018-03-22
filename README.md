@@ -132,8 +132,9 @@ Differences
     * p5 does not have `loadSound`
 1. Unikitty Flag: none
 1. Forward Kinematics:
-    * 1a: Nashorn ES6 does not support `class`
-    * 1a: Java object does not have `hasOwnProperty`
+    * 1a, 1b: Nashorn ES6 does not support `class`
+    * 1a, 1b: Java object does not have `hasOwnProperty`
+    * 2: ported from p5
 
 \* DOM replaced by other input/output  
 \*\* HTML5 example, no LiveJS version
