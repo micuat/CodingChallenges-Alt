@@ -137,6 +137,8 @@ Differences
     * 2: ported from p5
     * 3: ported from p5
     * 4: ported from p5
+1. Binary Tree:
+    * 1: p5 does not have `noCanvas`
 
 \* DOM replaced by other input/output  
 \*\* HTML5 example, no LiveJS version
