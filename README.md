@@ -140,6 +140,7 @@ Differences
 1. Binary Tree:
     * 1: p5 does not have `noCanvas`
     * 2: none
+1. Timer: none \*\*
 
 \* DOM replaced by other input/output  
 \*\* HTML5 example, no LiveJS version
