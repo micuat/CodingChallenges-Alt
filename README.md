@@ -141,6 +141,10 @@ Differences
     * 1: p5 does not have `noCanvas`
     * 2: none
 1. Timer: none \*\*
+1. Pong:
+    * sound lib different in p5
+    * `'a'` and `'A'` are treated the same in p5.js but not in p5
+    * `text(number)` shows floating point in p5
 
 \* DOM replaced by other input/output  
 \*\* HTML5 example, no LiveJS version

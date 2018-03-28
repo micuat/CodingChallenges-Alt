@@ -1,6 +1,6 @@
 function Paddle(sketch, isLeft) {
   this.s = sketch;
-  this.y = height / 2;
+  this.y = this.s.height / 2;
   this.w = 20;
   this.h = 100;
   this.ychange = 0;
@@ -8,7 +8,7 @@ function Paddle(sketch, isLeft) {
   if (isLeft) {
     this.x = this.w;
   } else {
-    this.x = width - this.w;
+    this.x = this.s.width - this.w;
   }
 
 

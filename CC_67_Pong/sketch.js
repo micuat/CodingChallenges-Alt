@@ -3,14 +3,15 @@
 
 // instance mode by Naoto Hieda
 
-let leftscore = 0;
-let rightscore = 0;
+var leftscore = 0;
+var rightscore = 0;
 
 var s = function (sketch) {
 
   sketch.setup = function () {
     sketch.createCanvas(600, 400);
-    ding = sketch.loadSound("data/ding.mp3");
+    if(sketch.isLiveJs == false)
+      ding = sketch.loadSound("data/ding.mp3");
     puck = new Puck(sketch);
     left = new Paddle(sketch, true);
     right = new Paddle(sketch, false);
@@ -45,15 +46,15 @@ var s = function (sketch) {
 
   sketch.keyPressed = function () {
     console.log(sketch.key);
-    if (sketch.key == 'A') {
+    if (sketch.key == 'a') {
       left.move(-10);
-    } else if (key == 'Z') {
+    } else if (sketch.key == 'z') {
       left.move(10);
     }
 
-    if (key == 'J') {
+    if (sketch.key == 'j') {
       right.move(-10);
-    } else if (key == 'M') {
+    } else if (sketch.key == 'm') {
       right.move(10);
     }
   }
