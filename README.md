@@ -146,6 +146,7 @@ Differences
     * `'a'` and `'A'` are treated the same in p5.js but not in p5
     * `text(number)` shows floating point in p5
 1. BFS Kevin Bacon: none \*\*
+1. Steering Evolution: none \*
 
 \* DOM replaced by other input/output  
 \*\* HTML5 example, no LiveJS version
