@@ -147,6 +147,8 @@ Differences
     * `text(number)` shows floating point in p5
 1. BFS Kevin Bacon: none \*\*
 1. Steering Evolution: none \*
+1. Nearest Neighbors:
+    * 1: none \*\*
 
 \* DOM replaced by other input/output  
 \*\* HTML5 example, no LiveJS version
