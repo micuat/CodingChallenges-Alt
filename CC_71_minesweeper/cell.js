@@ -32,7 +32,7 @@ Cell.prototype.show = function() {
       if (this.neighborCount > 0) {
         this.s.textAlign(this.s.CENTER);
         this.s.fill(0);
-        this.s.text(this.neighborCount, this.x + this.w * 0.5, this.y + this.w - 6);
+        this.s.text(this.s.nf(this.neighborCount), this.x + this.w * 0.5, this.y + this.w - 6);
       }
     }
   }

@@ -151,6 +151,7 @@ Differences
     * 1: none \*\*
     * 2: none \*\*
     * 3: none \*\*
+1. Mine Sweeper: add `nf` to convert float to int
 
 \* DOM replaced by other input/output  
 \*\* HTML5 example, no LiveJS version
