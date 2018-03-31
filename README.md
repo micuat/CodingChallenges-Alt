@@ -149,6 +149,7 @@ Differences
 1. Steering Evolution: none \*
 1. Nearest Neighbors:
     * 1: none \*\*
+    * 2: none \*\*
 
 \* DOM replaced by other input/output  
 \*\* HTML5 example, no LiveJS version
