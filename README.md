@@ -150,6 +150,7 @@ Differences
 1. Nearest Neighbors:
     * 1: none \*\*
     * 2: none \*\*
+    * 3: none \*\*
 
 \* DOM replaced by other input/output  
 \*\* HTML5 example, no LiveJS version
