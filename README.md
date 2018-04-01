@@ -152,6 +152,8 @@ Differences
     * 2: none \*\*
     * 3: none \*\*
 1. Mine Sweeper: add `nf` to convert float to int
+1. Frogger:
+    * `UP` is `UP_ARROW` in p5.js
 
 \* DOM replaced by other input/output  
 \*\* HTML5 example, no LiveJS version
