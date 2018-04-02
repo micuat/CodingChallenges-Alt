@@ -74,7 +74,7 @@ Frog.prototype = Object.create(Rectangle.prototype, {
   },
   show: {
     value: function () {
-      this.sketch.fill(0, 255, 0);
+      this.sketch.fill(0, 255, 0, 50);
       this.sketch.rect(this.x, this.y, this.w, this.w);
     }
   },

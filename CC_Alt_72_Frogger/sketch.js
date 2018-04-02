@@ -22,30 +22,25 @@ var grid = 20;
 var s = function (sketch) {
 
   sketch.resetGame = function (frog) {
-    let i = frog.index;
-    let x = sketch.map(i, 0, 31, 0, sketch.width - grid / 2);
-    frog = new Frog(sketch, x, sketch.height - grid, grid);
-    frogs[i] = frog;
-    frog.attach(null);
+    for (let i in frogs) {
+      if (frogs[i] == frog) {
+        frogs.splice(i, 1);
+        break;
+      }
+    }
   }
 
   sketch.setup = function () {
     sketch.createCanvas(800, 800);
     //frog = new Frog(width/2-grid/2, height-grid, grid);
     frogs = [];
-    for (let i = 0; i < 32; i++) {
-      let x = sketch.map(i, 0, 31, 0, sketch.width - grid / 2);
-      let frog = new Frog(sketch, x, sketch.height - grid, grid, i);
-      frogs.push(frog);
-      frog.attach(null);
-    }
     let totalLanes = parseInt(sketch.height / grid);
     lanes = [];
     for (let i = 0; i < totalLanes; i++) {
       let t = sketch.floor(sketch.random(3));
-      let n = sketch.floor(sketch.random(1, 5));
+      let n = sketch.floor(sketch.random(1, 50));
       let len = sketch.floor(sketch.random(1, 4));
-      let spacing = sketch.random(150, 350);
+      let spacing = sketch.random(10, 350);
       let speed = sketch.random(1, 4) * (sketch.random(1) > 0.5 ? 1 : -1);
       if (t == SAFETY) {
         lanes[i] = new Lane(sketch, i, sketch.color(100));
@@ -73,6 +68,16 @@ var s = function (sketch) {
   sketch.draw = function () {
     sketch.background(0);
     sketch.noStroke();
+
+    if (frogs.length < 300) {
+      for (let i = 0; i < 3; i++) {
+        let x = sketch.random(0, sketch.width - grid / 2);
+        let frog = new Frog(sketch, x, sketch.height - grid, grid, 0);
+        frogs.push(frog);
+        frog.attach(null);
+      }
+    }
+
     for (let i in lanes) {
       let lane = lanes[i];
       lane.run();
@@ -81,6 +86,7 @@ var s = function (sketch) {
     sketch.rect(0, 0, sketch.width, sketch.height);
     for (let i in frogs) {
       let frog = frogs[i];
+      if(frog == null) continue;
       let laneIndex = parseInt(frog.y / grid);
       if (laneIndex >= 0 && laneIndex < lanes.length) {
         lanes[laneIndex].check(frog);
