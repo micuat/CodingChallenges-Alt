@@ -154,6 +154,8 @@ Differences
 1. Mine Sweeper: add `nf` to convert float to int
 1. Frogger:
     * `UP` is `UP_ARROW` in p5.js
+1. Acrostic:
+    * none \*\*
 
 \* DOM replaced by other input/output  
 \*\* HTML5 example, no LiveJS version
