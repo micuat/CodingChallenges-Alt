@@ -156,6 +156,8 @@ Differences
     * `UP` is `UP_ARROW` in p5.js
 1. Acrostic:
     * none \*\*
+1. Clock:
+    * no `angleMode` in Processing
 
 \* DOM replaced by other input/output  
 \*\* HTML5 example, no LiveJS version
