@@ -160,6 +160,7 @@ Differences
     * no `angleMode` in Processing
 1. Wikipedia: none \*\*
 1. 10 PRINT: none
+1. Recursion: none
 
 \* DOM replaced by other input/output  
 \*\* HTML5 example, no LiveJS version
