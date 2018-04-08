@@ -161,6 +161,8 @@ Differences
 1. Wikipedia: none \*\*
 1. 10 PRINT: none
 1. Recursion: none
+1. Simple Particle System:
+    * `class` to `function`
 
 \* DOM replaced by other input/output  
 \*\* HTML5 example, no LiveJS version

@@ -28,6 +28,8 @@ import toxi.geom.*;
 import oscP5.*;
 import netP5.*;
 
+import geomerative.*;
+
 OscP5 oscP5;
 NetAddress myRemoteLocation;
 
@@ -52,15 +54,14 @@ float frameRate() {
 void setup() {
   oscP5 = new OscP5(this, 7000);
 
+  RG.init(this);
+
   size(400, 400, P3D);
   surface.setResizable(true);
   frameRate(60);
 
-  libPaths.add(sketchPath("../CC_62_plinko/libraries/matter.js"));
-  scriptPaths.add(sketchPath("../CC_62_plinko/boundary.js"));
-  scriptPaths.add(sketchPath("../CC_62_plinko/particle.js"));
-  scriptPaths.add(sketchPath("../CC_62_plinko/plinko.js"));
-  scriptPaths.add(sketchPath("../CC_62_plinko/sketch.js"));
+  //libPaths.add(sketchPath("../CC_62_plinko/libraries/matter.js"));
+  scriptPaths.add(sketchPath("../CC_78_Simple_Particle_System/sketch.js"));
 
   initNashorn();
 }
@@ -78,7 +79,7 @@ void initNashorn() {
     // calling Object.bindProperties(global, this);
     // which will "bind" properties of the PApplet object
     ((Invocable)nashorn).invokeMethod(jsObject, "bindProperties", global, (PApplet)this);
-    
+
     // Array.prototype.includes
     // nashorn.eval("Array.prototype.includes = function (val){return this.indexOf(val) != -1;}");
 
@@ -175,7 +176,7 @@ void initNashorn() {
       "}");
 
     // p5js entry point
-    nashorn.eval("var p5 = function(sketch) {sketch(alternateSketch); globalSketch = alternateSketch;}");
+    nashorn.eval("var p5 = function(sketch) {sketch(alternateSketch); globalSketch = alternateSketch; return alternateSketch;}");
 
     // p5.Vector
     nashorn.eval("p5.Vector = Packages.processing.core.PVector;");
@@ -197,7 +198,7 @@ void initNashorn() {
   catch (Exception e) {
     e.printStackTrace();
   }
-  
+
   try {
     readLibs(libPaths);
   }
