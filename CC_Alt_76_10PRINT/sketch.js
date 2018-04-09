@@ -55,7 +55,7 @@ var s = function (p) {
         }
       }
     }
-    else {
+    else if (p.frameCount > 5) {
       for (let k = 0; k < 10; k++) {
         c = String.fromCharCode(cur);
         p.background(0);
@@ -75,15 +75,16 @@ var s = function (p) {
         let total = 0;
         let totalwhite = 0;
         let d = 46;
+
         for (let i = 0; i < w; i++) {
           for (let j = 0; j < w; j++) {
             let leftc = p.get(j + dx, i + dy);
             let rightc = p.get(w + spacing - j + dx, i + dy);
             if (p.brightness(leftc) > 100 && p.brightness(rightc) > 100) total++;
-            if (p.brightness(rightc) > 100) totalwhite++;
+            if (p.brightness(leftc) > 100 || p.brightness(rightc) > 100) totalwhite++;
           }
         }
-        if (total / totalwhite > 0.5) {
+        if (total / totalwhite > 0.4) {
           found = true;
           p.background(0);
           break;
