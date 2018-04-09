@@ -163,6 +163,7 @@ Differences
 1. Recursion: none
 1. Simple Particle System:
     * `class` to `function`
+1. Number Guessing Chatbot: none \*\*
 
 \* DOM replaced by other input/output  
 \*\* HTML5 example, no LiveJS version
