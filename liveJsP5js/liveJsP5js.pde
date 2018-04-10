@@ -16,6 +16,9 @@ import java.nio.file.Files;
 import java.nio.file.Paths;
 import java.nio.charset.StandardCharsets;
 import java.util.Scanner;
+
+import com.ning.http.client.*;
+
 import processing.awt.PSurfaceAWT;
 
 import peasy.PeasyCam;
@@ -47,6 +50,8 @@ public int newWidth, newHeight;
 
 public PApplet that = this;
 
+boolean libInited = false;
+
 float frameRate() {
   return frameRate;
 }
@@ -60,8 +65,8 @@ void setup() {
   surface.setResizable(true);
   frameRate(60);
 
-  //libPaths.add(sketchPath("../CC_62_plinko/libraries/matter.js"));
-  scriptPaths.add(sketchPath("../CC_78_Simple_Particle_System/sketch.js"));
+  libPaths.add(sketchPath("event-loop-nashorn.js"));
+  scriptPaths.add(sketchPath("../CC_Alt_81_1_Circle_Morphing_Part_1/sketch.js"));
 
   initNashorn();
 }
@@ -198,16 +203,18 @@ void initNashorn() {
   catch (Exception e) {
     e.printStackTrace();
   }
-
-  try {
-    readLibs(libPaths);
-  }
-  catch (IOException e) {
-    e.printStackTrace();
-  }
 }
 
 void draw() {
+  if (libInited == false) {
+    try {
+      readLibs(libPaths);
+      libInited = true;
+    }
+    catch (IOException e) {
+      e.printStackTrace();
+    }
+  }
   try {
     readFiles(scriptPaths);
   }
