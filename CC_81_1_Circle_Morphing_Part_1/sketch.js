@@ -7,10 +7,10 @@
 
 // instance mode by Naoto Hieda
 
-let cirPath = [];
-let triPath = [];
-let spacing = 10;
-let theta = 0;
+var cirPath = [];
+var triPath = [];
+var spacing = 10;
+var theta = 0;
 
 var s = function (p) {
 
@@ -20,14 +20,14 @@ var s = function (p) {
 
   p.setup = function () {
     p.createCanvas(400, 400);
-    p.angleMode(p.DEGREES);
+    // p.angleMode(p.DEGREES);
     let radius = 100;
     let startA = 0;
     let endA = 120;
-    let start = p.polarToCartesian(radius, startA);
-    let end = p.polarToCartesian(radius, endA);
+    let start = p.polarToCartesian(radius, p.radians(startA));
+    let end = p.polarToCartesian(radius, p.radians(endA));
     for (let a = startA; a < 360; a += spacing) {
-      let cv = p.polarToCartesian(radius, a);
+      let cv = p.polarToCartesian(radius, p.radians(a));
       cirPath.push(cv);
       let amt = (a % 120) / (endA - startA);
       let tv = p5.Vector.lerp(start, end, amt);
@@ -36,8 +36,8 @@ var s = function (p) {
       if ((a + spacing) % 120 === 0) {
         startA = startA + 120;
         endA = endA + 120;
-        start = p.polarToCartesian(radius, startA);
-        end = p.polarToCartesian(radius, endA);
+        start = p.polarToCartesian(radius, p.radians(startA));
+        end = p.polarToCartesian(radius, p.radians(endA));
       }
     }
 
@@ -46,12 +46,12 @@ var s = function (p) {
   p.draw = function () {
     p.background(220);
     p.translate(p.width / 2, p.height / 2);
-    p.rotate(30);
+    p.rotate(p.radians(30));
     p.stroke(0);
     p.strokeWeight(4);
     p.noFill();
     let amt = (p.sin(theta) + 1) / 2;
-    theta += 5;
+    theta += 0.1;
     p.beginShape();
     for (let i = 0; i < cirPath.length; i++) {
       let cv = cirPath[i];
