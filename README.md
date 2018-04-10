@@ -164,6 +164,7 @@ Differences
 1. Simple Particle System:
     * `class` to `function`
 1. Number Guessing Chatbot: none \*\*
+1. Voice Chatbot: none (it seems there's bug in original version) \*\*
 
 \* DOM replaced by other input/output  
 \*\* HTML5 example, no LiveJS version
