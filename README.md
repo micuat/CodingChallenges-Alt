@@ -166,8 +166,9 @@ Differences
 1. Number Guessing Chatbot: none \*\*
 1. Voice Chatbot: none (it seems there's bug in original version) \*\*
 1. Circle Morphing:
-    * Part 1: no `angleMode` in Processing
+    * Part 1, 2: no `angleMode` in Processing
     * Part 1: change timing
+    * Part 2: Nashorn cannot add members to Java class
 
 \* DOM replaced by other input/output  
 \*\* HTML5 example, no LiveJS version
