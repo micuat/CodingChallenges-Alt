@@ -169,6 +169,10 @@ Differences
     * Part 1, 2: no `angleMode` in Processing
     * Part 1: change timing
     * Part 2: Nashorn cannot add members to Java class
+1. Image Chrome Extension The Ex-Kitten-sion: skipping chrome extensions
+1. Chrome Extension with p5.js Sketch: skipping chrome extensions
+1. Word Definition Extension: skipping chrome extensions
+1. The Game of Life: none
 
 \* DOM replaced by other input/output  
 \*\* HTML5 example, no LiveJS version
