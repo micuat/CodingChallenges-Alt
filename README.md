@@ -173,6 +173,8 @@ Differences
 1. Chrome Extension with p5.js Sketch: skipping chrome extensions
 1. Word Definition Extension: skipping chrome extensions
 1. The Game of Life: none
+1. Bees and Bombs:
+    * Processing version doesn't have `normalMaterial`
 
 \* DOM replaced by other input/output  
 \*\* HTML5 example, no LiveJS version
