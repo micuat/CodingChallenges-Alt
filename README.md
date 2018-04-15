@@ -176,6 +176,9 @@ Differences
 1. Bees and Bombs:
     * Processing version doesn't have `normalMaterial`
 1. 3D Knots: none
+1. Snowfall:
+    * `class` to `function`
+    * `for of` to `for in`
 
 \* DOM replaced by other input/output  
 \*\* HTML5 example, no LiveJS version
