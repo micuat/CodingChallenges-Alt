@@ -179,6 +179,7 @@ Differences
 1. Snowfall:
     * `class` to `function`
     * `for of` to `for in`
+1. Langton's Ant: none
 
 \* DOM replaced by other input/output  
 \*\* HTML5 example, no LiveJS version
