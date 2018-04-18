@@ -182,6 +182,9 @@ Differences
 1. Langton's Ant: none
 1. Dithering:
     * change `color` structure
+1. Snakes and Ladders: \*
+    * `class` to `function`
+    * `for of` to `for in`
 
 \* DOM replaced by other input/output  
 \*\* HTML5 example, no LiveJS version
