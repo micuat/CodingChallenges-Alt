@@ -180,6 +180,8 @@ Differences
     * `class` to `function`
     * `for of` to `for in`
 1. Langton's Ant: none
+1. Dithering:
+    * change `color` structure
 
 \* DOM replaced by other input/output  
 \*\* HTML5 example, no LiveJS version
