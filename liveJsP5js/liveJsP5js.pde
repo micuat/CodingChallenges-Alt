@@ -66,7 +66,9 @@ void setup() {
   frameRate(60);
 
   libPaths.add(sketchPath("event-loop-nashorn.js"));
-  scriptPaths.add(sketchPath("../CC_Alt_81_1_Circle_Morphing_Part_1/sketch.js"));
+  scriptPaths.add(sketchPath("../CC_91_snakesladders/player.js"));
+  scriptPaths.add(sketchPath("../CC_91_snakesladders/tile.js"));
+  scriptPaths.add(sketchPath("../CC_91_snakesladders/sketch.js"));
 
   initNashorn();
 }

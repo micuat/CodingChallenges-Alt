@@ -7,7 +7,7 @@ function Tree(sketch) {
   this.leaves = [];
   this.branches = [];
 
-  for (var i = 0; i < 2000; i++) {
+  for (var i = 0; i < 1000; i++) {
     this.leaves.push(new Leaf(sketch));
   }
   var pos = sketch.createVector(0, 0, 0);

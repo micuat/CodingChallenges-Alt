@@ -19,7 +19,7 @@ var s = function (sketch) {
     //rotate(PI / 2);
 
     sketch.stroke(255);
-    sketch.fill(255, 10);
+    sketch.fill(255, 30);
     sketch.strokeWeight(1);
 
     var da = sketch.PI / 300;

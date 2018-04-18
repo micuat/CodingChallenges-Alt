@@ -13,7 +13,7 @@ var min_dist = 10;
 var s = function (sketch) {
 
   sketch.setup = function () {
-    sketch.createCanvas(400, 400, sketch.WEBGL);
+    sketch.createCanvas(800, 800, sketch.WEBGL);
     tree = new Tree(sketch);
   }
 
