@@ -185,6 +185,8 @@ Differences
 1. Snakes and Ladders: \*
     * `class` to `function`
     * `for of` to `for in`
+1. XOR:
+    * library uses ES6 so has to be replaced for p5
 
 \* DOM replaced by other input/output  
 \*\* HTML5 example, no LiveJS version
