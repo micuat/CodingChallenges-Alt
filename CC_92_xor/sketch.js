@@ -34,7 +34,9 @@ var s = function (p) {
 
   p.setup = function () {
     p.createCanvas(400, 400);
-    nn = new NeuralNetwork(2, 4, 1);
+    // let synaptic = require('synaptic');
+    nn = new synaptic.Architect.Perceptron(2, 4, 1);
+    // nn = new NeuralNetwork(2, 4, 1);
     // lr_slider = p.createSlider(0.01, 0.5, 0.1, 0.01);
 
   }
@@ -44,10 +46,12 @@ var s = function (p) {
 
     for (let i = 0; i < 100; i++) {
       let data = p.random(training_data);
-      nn.train(data.inputs, data.outputs);
+      // nn.train(data.inputs, data.outputs);
+      nn.activate(data.inputs);
+      nn.propagate(p.map(p.mouseX, 0, p.width, 0.01, 0.5), data.outputs)
     }
 
-    nn.setLearningRate(p.map(p.mouseX, 0, p.width, 0.01, 0.5));
+    // nn.setLearningRate(p.map(p.mouseX, 0, p.width, 0.01, 0.5));
 
     let resolution = 10;
     let cols = p.width / resolution;
@@ -57,7 +61,8 @@ var s = function (p) {
         let x1 = i / cols;
         let x2 = j / rows;
         let inputs = [x1, x2];
-        let y = nn.predict(inputs);
+        // let y = nn.predict(inputs);
+        let y = nn.activate(inputs);
         p.noStroke();
         p.fill(y * 255);
         p.rect(i * resolution, j * resolution, resolution, resolution);

@@ -186,7 +186,7 @@ Differences
     * `class` to `function`
     * `for of` to `for in`
 1. XOR:
-    * library uses ES6 so has to be replaced for p5
+    * nn library replaced by synaptic as nn uses ES6
 
 \* DOM replaced by other input/output  
 \*\* HTML5 example, no LiveJS version
