@@ -18,48 +18,52 @@ var s = function (p) {
 
   p.setup = function () {
     p.createCanvas(800, 800);
+    nn = new synaptic.Architect.Perceptron(2, 3, 3);
 
     reset();
   }
 
   function reset() {
-    nn = new synaptic.Architect.Perceptron(2, 4, 3);
     training_data = [{
-      inputs: [p.random(0, 0.5), p.random(0, 0.5)],
+      inputs: [p.random(0, 0.25), p.random(0, 0.25)],
       outputs: [p.random(1), p.random(1), p.random(1)]
     },
     {
-      inputs: [p.random(0, 0.5), p.random(0.5, 1)],
+      inputs: [p.random(0, 0.25), p.random(0.75, 1)],
       outputs: [p.random(1), p.random(1), p.random(1)]
     },
     {
-      inputs: [p.random(0.5, 1), p.random(0, 0.5)],
+      inputs: [p.random(0.75, 1), p.random(0, 0.25)],
       outputs: [p.random(1), p.random(1), p.random(1)]
     },
     {
-      inputs: [p.random(0.5, 1), p.random(0.5, 1)],
+      inputs: [p.random(0.75, 1), p.random(0, 0.25)],
       outputs: [p.random(1), p.random(1), p.random(1)]
     }
+    // {
+    //   inputs: [0.5, 0.5],
+    //   outputs: [p.random(1), p.random(1), p.random(1)]
+    // }
     ];
   }
 
   p.draw = function () {
     p.background(0);
 
-    if(p.frameCount % 30 == 0) {
+    if(p.frameCount % 60 == 0) {
       reset();
     }
 
-    for (let i = 0; i < 100; i++) {
+    for (let i = 0; i < 50; i++) {
       let data = p.random(training_data);
       // nn.train(data.inputs, data.outputs);
       nn.activate(data.inputs);
-      nn.propagate(0.4, data.outputs)
+      nn.propagate(0.9, data.outputs)
     }
 
     // nn.setLearningRate(p.map(p.mouseX, 0, p.width, 0.01, 0.5));
 
-    let resolution = 40;
+    let resolution = 20;
     let cols = p.width / resolution;
     let rows = p.height / resolution;
     for (let i = 0; i < cols; i++) {
