@@ -187,6 +187,8 @@ Differences
     * `for of` to `for in`
 1. XOR:
     * nn library replaced by synaptic as nn uses ES6
+1. Double Pendulum:
+    * different buffer API
 
 \* DOM replaced by other input/output  
 \*\* HTML5 example, no LiveJS version
