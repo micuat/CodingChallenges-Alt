@@ -31,9 +31,17 @@ var s = function (p) {
     cx = p.width / 2;
     cy = 50;
     buffer = p.createGraphics(p.width, p.height);
-    buffer.pixelDensity(1);
+    if (!p.isLiveJs) {
+      buffer.pixelDensity(1);
+    }
+    if (p.isLiveJs) {
+      buffer.beginDraw();
+    }
     buffer.background(175);
     buffer.translate(cx, cy);
+    if (p.isLiveJs) {
+      buffer.endDraw();
+    }
   }
 
   p.draw = function () {
@@ -81,9 +89,16 @@ var s = function (p) {
     // a1_v *= 0.99;
     // a2_v *= 0.99;
 
+    if (p.isLiveJs) {
+      buffer.beginDraw();
+      buffer.translate(cx, cy);
+    }
     buffer.stroke(0);
     if (p.frameCount > 1) {
       buffer.line(px2, py2, x2, y2);
+    }
+    if (p.isLiveJs) {
+      buffer.endDraw();
     }
 
     px2 = x2;
