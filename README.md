@@ -189,6 +189,8 @@ Differences
     * nn library replaced by synaptic as nn uses ES6
 1. Double Pendulum:
     * different buffer API
+1. 2048: skipping
+1. Approximating Pi: none
 
 \* DOM replaced by other input/output  
 \*\* HTML5 example, no LiveJS version
