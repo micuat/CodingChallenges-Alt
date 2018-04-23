@@ -194,6 +194,7 @@ Differences
     * move drawing operations to `draw`
     * hex color string needs to be converted to `color`
 1. Approximating Pi: none
+1. Visualizing the Digits of Pi: none
 
 \* DOM replaced by other input/output  
 \*\* HTML5 example, no LiveJS version
