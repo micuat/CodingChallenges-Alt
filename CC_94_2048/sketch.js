@@ -8,7 +8,7 @@ var s = function (p) {
 
   p.setup = function () {
     p.createCanvas(400, 400);
-    p.noLoop();
+    // p.noLoop();
     grid = blankGrid();
     grid_new = blankGrid();
     // console.table(grid);
@@ -75,9 +75,14 @@ var s = function (p) {
   }
 
   p.updateCanvas = function () {
+    // p.background(255);
+    // p.drawGrid();
+    // p.select('#score').html(score);
+  }
+
+  p.draw = function () {
     p.background(255);
     p.drawGrid();
-    p.select('#score').html(score);
   }
 
   p.drawGrid = function () {
@@ -98,7 +103,8 @@ var s = function (p) {
         }
 
         if (val != 0) {
-          p.fill(colorsSizes[s].color);
+          // p.fill(colorsSizes[s].color);
+          p.noFill();
         } else {
           p.noFill();
         }

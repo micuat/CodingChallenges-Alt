@@ -189,7 +189,10 @@ Differences
     * nn library replaced by synaptic as nn uses ES6
 1. Double Pendulum:
     * different buffer API
-1. 2048: skipping
+1. 2048:
+    * fix ES6 compatibility
+    * move drawing operations to `draw`
+    * hex color string needs to be converted to `color`
 1. Approximating Pi: none
 
 \* DOM replaced by other input/output  

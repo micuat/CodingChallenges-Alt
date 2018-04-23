@@ -7,9 +7,11 @@ function operate(row) {
 
 // making new array
 function slide(row) {
-  let arr = row.filter(val => val);
+  let arr = row.filter(function(val){return val});
   let missing = 4 - arr.length;
-  let zeros = Array(missing).fill(0);
+  // let zeros = Array(missing).fill(0);
+  let zeros = []; for(let i = 0; i < missing; i++) {zeros[i] = 0;}
+  console.log(zeros)
   arr = zeros.concat(arr);
   return arr;
 }
