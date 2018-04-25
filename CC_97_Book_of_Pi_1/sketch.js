@@ -11,8 +11,9 @@ var pi;
 
 var s = function (p) {
   p.setup = function () {
-    p.createCanvas(1000, 1000, p.PDF, "../CC_97_Book_of_Pi_1/bookofpi-10million-text.pdf");
-    // let pdf = g;  // Get the renderer
+    p.createCanvas(1000, 1000);
+    // let pdf = p.g;  // Get the renderer
+    let pdf = p.gPdf;
     pi = p.loadStrings("../CC_97_Book_of_Pi_1/pi-10million.txt")[0];
 
     let cols = 100;
@@ -27,7 +28,7 @@ var s = function (p) {
     let totalPages = pi.length() / (cols * rows);
     print(totalPages);
 
-    for (let i = 0; i < 0; i++) {
+    for (let i = 0; i < 2; i++) {
 
       for (let y = 0; y < p.height; y += h) {
         for (let x = 0; x < p.width; x += w) {
@@ -47,7 +48,7 @@ var s = function (p) {
         }
       }
       print("Page " + i + " complete!");
-      // pdf.nextPage();
+      pdf.nextPage();
     }
     print("Finished");
     p.exit();

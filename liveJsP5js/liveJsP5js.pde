@@ -17,6 +17,8 @@ import java.nio.file.Paths;
 import java.nio.charset.StandardCharsets;
 import java.util.Scanner;
 
+import processing.pdf.*;
+
 import com.ning.http.client.*;
 
 import processing.awt.PSurfaceAWT;
@@ -41,6 +43,8 @@ private static ScriptEngine nashorn;
 
 public static String VERSION = "0.1";
 
+public PGraphicsPDF gPdf;
+
 private static ArrayList<String> libPaths = new ArrayList<String>();
 private static ArrayList<String> scriptPaths = new ArrayList<String>();
 private static long prevModified;
@@ -61,14 +65,14 @@ void setup() {
 
   RG.init(this);
 
-  size(400, 400, P3D);
+  size(400, 400, PDF, "../CC_97_Book_of_Pi_1/bookofpi-10million-text.pdf");
   surface.setResizable(true);
   frameRate(60);
 
+  gPdf = (PGraphicsPDF)g;
+
   libPaths.add(sketchPath("event-loop-nashorn.js"));
-  scriptPaths.add(sketchPath("../CC_91_snakesladders/player.js"));
-  scriptPaths.add(sketchPath("../CC_91_snakesladders/tile.js"));
-  scriptPaths.add(sketchPath("../CC_91_snakesladders/sketch.js"));
+  scriptPaths.add(sketchPath("../CC_97_Book_of_Pi_1/sketch.js"));
 
   initNashorn();
 }
