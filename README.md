@@ -197,6 +197,8 @@ Differences
 1. Visualizing the Digits of Pi: none
 1. Book of Pi:
     * 1, 2: needs to edit `size` to PDF mode
+1. QuadTree:
+    * 1: ES6 compatibility
 
 \* DOM replaced by other input/output  
 \*\* HTML5 example, no LiveJS version

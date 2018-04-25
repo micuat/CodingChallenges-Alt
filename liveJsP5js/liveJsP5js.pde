@@ -73,7 +73,8 @@ void setup() {
 
 
   libPaths.add(sketchPath("event-loop-nashorn.js"));
-  scriptPaths.add(sketchPath("../CC_Alt_97_Book_of_Pi_2/sketch.js"));
+  scriptPaths.add(sketchPath("../CC_98_1_QuadTree/quadtree.js"));
+  scriptPaths.add(sketchPath("../CC_98_1_QuadTree/sketch.js"));
 
   initNashorn();
 }
@@ -145,6 +146,13 @@ void initNashorn() {
       "  else if(arguments.length == 2) return alternateSketch.map(Math.random(), 0, 1, arguments[0], arguments[1]);" +
       "}");
 
+    // overwrite randomGaussian
+    nashorn.eval("alternateSketch.randomGaussian = function (m, v) {" +
+      "  if (m === undefined) return pApplet.randomGaussian();" +
+      "  else if (v === undefined) return pApplet.randomGaussian() + m;" +
+      "  else return pApplet.randomGaussian() * v + m;" +
+      "}");
+
     // overwrite constrain (int/float arity signature problem)
     nashorn.eval("alternateSketch.constrain = function(x, xl, xh) {" +
       "  return Math.min(Math.max(x, xl), xh);" +
@@ -184,7 +192,7 @@ void initNashorn() {
     // also avoids ellipse, color to define separately
     nashorn.eval("this.isReservedFunction = function (str) {" +
       "  var isArgument_ = function (element) { return str === element; };" +
-      "  return ['ellipse', 'color', 'random', 'setup', 'draw', 'keyPressed', 'keyReleased', 'keyTyped', 'mouseClicked', 'mouseDragged', 'mouseMoved', 'mousePressed', 'mouseReleased', 'mouseWheel', 'oscEvent'].some(isArgument_);" +
+      "  return ['ellipse', 'color', 'random', 'randomGaussian', 'setup', 'draw', 'keyPressed', 'keyReleased', 'keyTyped', 'mouseClicked', 'mouseDragged', 'mouseMoved', 'mousePressed', 'mouseReleased', 'mouseWheel', 'oscEvent'].some(isArgument_);" +
       "}");
 
     // p5js entry point
