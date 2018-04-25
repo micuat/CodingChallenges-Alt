@@ -65,14 +65,15 @@ void setup() {
 
   RG.init(this);
 
-  size(400, 400, PDF, "../CC_97_Book_of_Pi_1/bookofpi-10million-text.pdf");
+  //size(400, 400, P3D);
+  size(850, 1150, PDF, "../CC_97_Book_of_Pi_2/bookofpi-10million-text.pdf");
+  gPdf = (PGraphicsPDF)g;
   surface.setResizable(true);
   frameRate(60);
 
-  gPdf = (PGraphicsPDF)g;
 
   libPaths.add(sketchPath("event-loop-nashorn.js"));
-  scriptPaths.add(sketchPath("../CC_97_Book_of_Pi_1/sketch.js"));
+  scriptPaths.add(sketchPath("../CC_97_Book_of_Pi_2/sketch.js"));
 
   initNashorn();
 }

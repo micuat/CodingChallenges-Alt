@@ -196,7 +196,7 @@ Differences
 1. Approximating Pi: none
 1. Visualizing the Digits of Pi: none
 1. Book of Pi:
-    * 1: needs to edit `size` to PDF mode
+    * 1, 2: needs to edit `size` to PDF mode
 
 \* DOM replaced by other input/output  
 \*\* HTML5 example, no LiveJS version
