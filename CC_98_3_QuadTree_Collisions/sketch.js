@@ -29,7 +29,8 @@ var s = function (p) {
     let boundary = new Rectangle(300, 200, 600, 400);
     let qtree = new QuadTree(boundary, 4);
 
-    for (let pt of particles) {
+    for (let i in particles) {
+      let pt = particles[i];
       let point = new Point(pt.x, pt.y, pt);
       qtree.insert(point);
 
@@ -39,10 +40,12 @@ var s = function (p) {
       pt.setHighlight(false);
     }
 
-    for (let pt of particles) {
+    for (let i in particles) {
+      let pt = particles[i];
       let range = new Circle(pt.x, pt.y, pt.r * 2);
       let points = qtree.query(range);
-      for (let point of points) {
+      for (let i in points) {
+        let point = points[i];
         let other = point.userData;
         // for (let other of particles) {
         if (pt !== other && pt.intersects(other)) {
