@@ -199,6 +199,9 @@ Differences
     * 1, 2: needs to edit `size` to PDF mode
 1. QuadTree:
     * 1, 3: ES6 compatibility
+1. Color Predictor:
+    * replace nn with synaptic
+    * draw every frame instead of redraw
 
 \* DOM replaced by other input/output  
 \*\* HTML5 example, no LiveJS version

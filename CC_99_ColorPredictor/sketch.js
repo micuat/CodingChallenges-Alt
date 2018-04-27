@@ -25,12 +25,12 @@ var s = function (p) {
     r = p.random(255);
     g = p.random(255);
     b = p.random(255);
-    p.redraw();
+    // p.redraw();
   }
 
   p.setup = function () {
     p.createCanvas(600, 300);
-    p.noLoop();
+    // p.noLoop();
     brain = new synaptic.Architect.Perceptron(3, 3, 2);
     // brain = new NeuralNetwork(3, 3, 2);
 
