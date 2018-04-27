@@ -11,13 +11,13 @@
 
 // instance mode by Naoto Hieda
 
-let r, g, b;
-let brain;
+var r, g, b;
+var brain;
 
-let which = "black";
+var which = "black";
 
-let wButton;
-let bButton;
+var wButton;
+var bButton;
 
 var s = function (p) {
 
@@ -31,7 +31,8 @@ var s = function (p) {
   p.setup = function () {
     p.createCanvas(600, 300);
     p.noLoop();
-    brain = new NeuralNetwork(3, 3, 2);
+    brain = new synaptic.Architect.Perceptron(3, 3, 2);
+    // brain = new NeuralNetwork(3, 3, 2);
 
     for (let i = 0; i < 10000; i++) {
       let r = p.random(255);
@@ -39,7 +40,9 @@ var s = function (p) {
       let b = p.random(255);
       let targets = trainColor(r, g, b);
       let inputs = [r / 255, g / 255, b / 255];
-      brain.train(inputs, targets);
+      brain.activate(inputs);
+      brain.propagate(0.4, targets);
+      // brain.train(inputs, targets);
     }
 
     pickColor();
@@ -65,7 +68,7 @@ var s = function (p) {
   function colorPredictor(r, g, b) {
     console.log(Math.floor(r + g + b));
     let inputs = [r / 255, g / 255, b / 255];
-    let outputs = brain.predict(inputs);
+    let outputs = brain.activate(inputs);
     //console.log(outputs);
 
     if (outputs[0] > outputs[1]) {
