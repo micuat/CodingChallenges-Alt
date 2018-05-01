@@ -5,23 +5,23 @@
 
 // instance mode by Naoto Hieda
 
-var s = function( sketch ) {
+var s = function(p) {
 
   var stars = [];
 
   var speed;
 
-  sketch.setup = function () {
-    sketch.createCanvas(600, 600);
+  p.setup = function () {
+    p.createCanvas(600, 600);
     for (var i = 0; i < 800; i++) {
-      stars[i] = new Star(sketch);
+      stars[i] = new Star();
     }
   }
 
-  sketch.draw = function () {
-    speed = sketch.map(sketch.mouseX, 0, sketch.width, 0, 50);
-    sketch.background(0);
-    sketch.translate(sketch.width / 2, sketch.height / 2);
+  p.draw = function () {
+    speed = p.map(p.mouseX, 0, p.width, 0, 50);
+    p.background(0);
+    p.translate(p.width / 2, p.height / 2);
     for (var i = 0; i < stars.length; i++) {
       stars[i].update(speed);
       stars[i].show();
@@ -29,4 +29,4 @@ var s = function( sketch ) {
   };
 };
 
-var myp5 = new p5(s);
+var p001 = new p5(s);
