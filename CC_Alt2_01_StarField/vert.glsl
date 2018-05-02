@@ -58,7 +58,7 @@ void main() {
 
   vec3 ecPosition = vec3(modelview * vertex);
 
-  vertColor = vec4(1,1,1,1);//color;
+  vertColor = color;
   ecNormal = normalize(normalMatrix * normal);
   lightDir = normalize(lightPosition.xyz - ecPosition);
 }

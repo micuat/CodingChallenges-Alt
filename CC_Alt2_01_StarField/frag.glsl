@@ -30,7 +30,8 @@ void main() {
   vec3 direction = normalize(lightDir);
   vec3 normal = normalize(ecNormal);
   float intensity = max(0.0, dot(direction, normal));
-  intensity *= 2;
+  intensity = intensity + 0.1;
+  // intensity *= 2;
   gl_FragColor = vec4(intensity, intensity, intensity, 1) * vertColor;
 
 }
