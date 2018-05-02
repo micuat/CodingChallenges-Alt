@@ -5,59 +5,59 @@
 
 // instance mode by Naoto Hieda
 
-var sk = function (sketch) {
+var sk = function (p) {
 
-  var s;
-  var scl = 20;
+  let s;
+  let scl = 20;
 
-  var food;
+  let food;
 
-  sketch.setup = function () {
-    sketch.createCanvas(600, 600);
-    s = new Snake(sketch, scl);
-    sketch.frameRate(10);
-    sketch.pickLocation();
+  p.setup = function () {
+    p.createCanvas(600, 600);
+    s = new Snake(scl);
+    p.frameRate(10);
+    p.pickLocation();
 
   }
 
-  sketch.pickLocation = function () {
-    var cols = sketch.floor(sketch.width / scl);
-    var rows = sketch.floor(sketch.height / scl);
-    food = sketch.createVector(sketch.floor(sketch.random(cols)), sketch.floor(sketch.random(rows)));
+  p.pickLocation = function () {
+    var cols = p.floor(p.width / scl);
+    var rows = p.floor(p.height / scl);
+    food = p.createVector(p.floor(p.random(cols)), p.floor(p.random(rows)));
     food.mult(scl);
   }
 
-  sketch.mousePressed = function () {
+  p.mousePressed = function () {
     s.total++;
   }
 
-  sketch.draw = function () {
-    sketch.background(51);
+  p.draw = function () {
+    p.background(51);
 
     if (s.eat(food)) {
-      sketch.pickLocation();
+      p.pickLocation();
     }
     s.death();
     s.update();
     s.show();
 
 
-    sketch.fill(255, 0, 100);
-    sketch.rect(food.x, food.y, scl, scl);
+    p.fill(255, 0, 100);
+    p.rect(food.x, food.y, scl, scl);
   }
 
-  sketch.keyPressed = function () {
-    if (sketch.keyCode === sketch.UP_ARROW) {
+  p.keyPressed = function () {
+    if (p.keyCode === p.UP_ARROW) {
       s.dir(0, -1);
-    } else if (sketch.keyCode === sketch.DOWN_ARROW) {
+    } else if (p.keyCode === p.DOWN_ARROW) {
       s.dir(0, 1);
-    } else if (sketch.keyCode === sketch.RIGHT_ARROW) {
+    } else if (p.keyCode === p.RIGHT_ARROW) {
       s.dir(1, 0);
-    } else if (sketch.keyCode === sketch.LEFT_ARROW) {
+    } else if (p.keyCode === p.LEFT_ARROW) {
       s.dir(-1, 0);
     }
   }
 
 };
 
-var myp5 = new p5(sk);
+var p003 = new p5(sk);
