@@ -18,7 +18,7 @@ var s = function (p) {
 
   p.setup = function () {
     p.createCanvas(800, 800);
-    for (let i = 0; i < 750; i++) {
+    for (let i = 0; i < 500; i++) {
       particles[i] = new Particle(p.random(p.width), p.random(p.height));
     }
     let r = 255;
@@ -47,7 +47,7 @@ var s = function (p) {
     let qtree = new QuadTree(boundary, 4);
 
     let mode = false;
-    if(p.millis() * 0.001 % 4 < 2) mode = true;
+    //if(p.millis() * 0.001 % 4 < 2) mode = true;
     for (let i in particles) {
       let pt = particles[i];
       let point = new Point(pt.x, pt.y, pt);
