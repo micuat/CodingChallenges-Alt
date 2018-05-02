@@ -22,7 +22,6 @@ Differences
 1. Menger Sponge:
     * Processing version doesn't have `normalMaterial`
     * p5.js doesn't have `smooth` (in WEBGL) / `lights`
-    * some issues with `this` scope (running alt on browser)
 1. Snake Game: none
 1. Purple Rain: none
 1. Space Invaders:

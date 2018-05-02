@@ -5,43 +5,44 @@
 
 // instance mode by Naoto Hieda
 
-var s = function (sketch) {
+var s = function (p) {
 
-  var a = 0;
+  let a = 0;
 
-  var sponge = [];
+  let sponge = [];
 
-  sketch.setup = function () {
-    sketch.createCanvas(400, 400, sketch.WEBGL);
+  p.setup = function () {
+    p.createCanvas(400, 400, p.WEBGL);
 
     // An array of Box objects
     // Star with one
-    var b = new Box(sketch, 0, 0, 0, 200);
+    let b = new Box(0, 0, 0, 200);
     sponge.push(b);
   }
 
-  sketch.mousePressed = function () {
+  p.mousePressed = function () {
     // Generate the next set of boxes
-    var next = [];
-    for (var i = 0; i < sponge.length; i++) {
-      var b = sponge[i];
-      var newBoxes = b.generate();
+    let next = [];
+    for (let i = 0; i < sponge.length; i++) {
+      let b = sponge[i];
+      let newBoxes = b.generate();
       next = next.concat(newBoxes);
     }
     sponge = next;
   }
 
-  sketch.draw = function () {
-    sketch.background(51);
-    sketch.rotateX(a);
-    sketch.rotateY(a * 0.4);
-    sketch.rotateZ(a * 0.1);
+  p.draw = function () {
+    p.background(51);
+    p.rotateX(a);
+    p.rotateY(a * 0.4);
+    p.rotateZ(a * 0.1);
+    if(p.isLiveJs) p.lights();
     // Show what you've got!
-    for (var i = 0; i < sponge.length; i++) {
+    for (let i = 0; i < sponge.length; i++) {
       sponge[i].show();
     }
     a += 0.01;
   }
 };
 
-var myp5 = new p5(s);
+var p002 = new p5(s);
