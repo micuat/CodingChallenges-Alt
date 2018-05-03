@@ -3,35 +3,44 @@ precision mediump float;
 precision mediump int;
 #endif
 
-varying vec3 vertNormal;
-varying vec3 vertLightDir;
+uniform sampler2D texture;
+
 varying vec4 vertColor;
-varying vec3 vpos;
-varying vec2 texCoord;
-varying vec3 ecNormal;
-varying vec3 lightDir;
+varying vec4 vertTexCoord;
 
-uniform sampler2D tex;
+vec2 hash( vec2 p ) // replace this by something better
+{
+	p = vec2( dot(p,vec2(127.1,311.7)),
+		dot(p,vec2(269.5,183.3)) );
 
-void main() {  
-  // float intensity;
-  // vec4 color;
-  // intensity = max(0.0, dot(vertLightDir, vertNormal));
-  // intensity *= (vpos.z*0.0000125+1);
+	return -1.0 + 2.0*fract(sin(p)*43758.5453123);
+}
 
-  // float alpha;
-  // if(vertColor.r < 0.5) alpha = 0.5;
-  // else alpha = 1.0;
-  // color = vec4(intensity, intensity+alpha, 1.0, alpha);
-  // color.rgb = texture2D(tex, texCoord).rgb;
-  // gl_FragColor = color;  
+float noise( in vec2 p )
+{
+  const float K1 = 0.366025404; // (sqrt(3)-1)/2;
+  const float K2 = 0.211324865; // (3-sqrt(3))/6;
 
-  // gl_FragColor = texture2D(tex, texCoord) * vertColor;
-  vec3 direction = normalize(lightDir);
-  vec3 normal = normalize(ecNormal);
-  float intensity = max(0.0, dot(direction, normal));
-  intensity = intensity + 0.1;
-  // intensity *= 2;
-  gl_FragColor = vec4(intensity, intensity, intensity, 1) * vertColor;
+	vec2 i = floor( p + (p.x+p.y)*K1 );
+	
+  vec2 a = p - i + (i.x+i.y)*K2;
+  vec2 o = step(a.yx,a.xy);    
+  vec2 b = a - o + K2;
+	vec2 c = a - 1.0 + 2.0*K2;
 
+  vec3 h = max( 0.5-vec3(dot(a,a), dot(b,b), dot(c,c) ), 0.0 );
+
+	vec3 n = h*h*h*h*vec3( dot(a,hash(i+0.0)), dot(b,hash(i+o)), dot(c,hash(i+1.0)));
+
+    return dot( n, vec3(70.0) );
+	
+}
+void main() {
+  // gl_FragColor = texture2D(texture, vertTexCoord.st) * vertColor;
+  // gl_FragColor = vec4(vertTexCoord.st, 1, 1);
+  vec2 v = vertTexCoord.st - vec2(0.5);
+  vec4 color = vec4(0);
+  if(length(v) < 0.5) color = vec4(1,1,1,1 - 2 * length(v));
+  // color.a *= noise(vertTexCoord.st * 3);
+  gl_FragColor = color;
 }

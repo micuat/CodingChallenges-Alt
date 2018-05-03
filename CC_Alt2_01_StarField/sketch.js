@@ -5,8 +5,9 @@
 
 // instance mode by Naoto Hieda
 
-var shader;
+var shader, lshader;
 var magtex;
+var weight = 80.0;
 
 var s = function (p) {
 
@@ -16,11 +17,15 @@ var s = function (p) {
 
   p.setup = function () {
     p.createCanvas(800, 800);
-    for (var i = 0; i < 300; i++) {
+    for (var i = 0; i < 1000; i++) {
       stars[i] = new Star();
     }
     shader = p.loadShader(p.sketchPath("../CC_Alt2_01_StarField/frag.glsl"),
       p.sketchPath("../CC_Alt2_01_StarField/vert.glsl"));
+
+    lshader = p.loadShader(p.sketchPath("../CC_Alt2_01_StarField/lineFrag.glsl"),
+      p.sketchPath("../CC_Alt2_01_StarField/lineVert.glsl"));
+
     magtex = p.loadImage("../CC_Alt2_01_StarField/magnesite.jpg");
   }
 
@@ -29,65 +34,57 @@ var s = function (p) {
   p.draw = function () {
 
     p.blendMode(p.BLEND);
-    let shape = p.createShape();
-    let total = 32;
-    let totali = 8;
-    let r = 5;
-    let tm = p.millis() * 0.001;
-    for (let i = 0; i < totali; i++) {
-      shape.beginShape(p.TRIANGLE_STRIP);
-      for (let j = 0; j < total + 1; j++) {
-        // if(i*totali + j < cur || cur+15 < i*totali + j) continue;
-        let t = p.map(Math.sin(tm + i * 0.01), -1, 1, 2, 8);
-        let lat = p.map(i, 0, totali, -p.HALF_PI, p.HALF_PI);
-        let lon = p.map(j, 0, total, -p.PI, p.PI);
-        let r1 = p.constrain(p.map(Math.sin(lon * t), -1, 1, 0.2, 1.5), 0.2, 1);
-        let x = Math.cos(lon) * Math.cos(lat) * r * r1;
-        let y = Math.sin(lon) * Math.cos(lat) * r * r1;
-        let z = Math.sin(lat) * r * p.map(r1, 0.2, 1, 1, 0.5);
-        shape.normal(Math.cos(lon) * Math.cos(lon * t) * t - Math.sin(lon) * Math.sin(lon * t),
-          Math.sin(lon) * Math.cos(lon * t) * t + Math.cos(lon) * Math.sin(lon * t),
-          0);
-        shape.vertex(x, y, z);
 
-        t = p.map(Math.sin(tm + (i+1) * 0.01), -1, 1, 2, 8);
-        r1 = p.constrain(p.map(Math.sin(lon * t), -1, 1, 0.2, 1.5), 0.2, 1);
-        lat = p.map(i + 1, 0, totali, -p.HALF_PI, p.HALF_PI);
-        x = Math.cos(lon) * Math.cos(lat) * r * r1;
-        y = Math.sin(lon) * Math.cos(lat) * r * r1;
-        z = Math.sin(lat) * r * p.map(r1, 0.2, 1, 1, 0.5);
-        shape.vertex(x, y, z);
-        shape.normal(Math.cos(lon) * Math.cos(lon * t) * t - Math.sin(lon) * Math.sin(lon * t),
-          Math.sin(lon) * Math.cos(lon * t) * t + Math.cos(lon) * Math.sin(lon * t),
-          0);
-      }
-      shape.endShape();
-    }
-    cur = (cur + 1) % (total * totali)/2;
-    // shape.enableStyle();
-    // shape.setStroke(p.color(0,0,0,0));
-    // shape.setFill(p.color(255));
-    shape.disableStyle();
-
-    // p.directionalLight(255, 100, 100, 0, 0, -1);
     if (p.frameCount % 120 == 0) {
       shader = p.loadShader(p.sketchPath("../CC_Alt2_01_StarField/frag.glsl"),
         p.sketchPath("../CC_Alt2_01_StarField/vert.glsl"));
+      lshader = p.loadShader(p.sketchPath("../CC_Alt2_01_StarField/lineFrag.glsl"),
+        p.sketchPath("../CC_Alt2_01_StarField/lineVert.glsl"));
     }
-    // shader.set("tex", magtex);
 
-    // p.lights();
-    p.shader(shader);
+    let s = p.sin(p.millis() * 0.001);
+    if(p.millis() * 0.001 % 4 < 0.1) {
+      // p.background(0);
+      weight = 20.0;
+      speed = 10;
+    }
+    else if(p.millis() * 0.001 % 4 < 1) {
+      weight = 20.0;
+      speed = 10;
+    }
+    else if(p.millis() * 0.001 % 4 < 2) {
+      // p.fill(255, 20);
+      // p.rect(400,400,800,800);
+      weight = 10.0;
+      speed = 10;
+    }
+    else if(p.millis() * 0.001 % 4 < 3) {
+      weight = 0.0;
+      speed = 10;
+    }
+    else {
+      // p.background(0);
+      p.fill(0, 20);
+      p.rect(400,400,800,800);
+      weight = 0.0;
+      speed = 10;
+    }
+    lshader.set("weight", weight);
 
-    speed = 10;
-    // if(p.frameCount % 240 < 60)
-    p.background(0);
+    // p.shader(shader);
+    p.shader(lshader, p.LINES);
+
+    // speed = 10;//p.constrain(p.map(s, 1, -1, 10, 50), 10, 50);
     p.translate(p.width / 2, p.height / 2);
-    p.directionalLight(255, 255, 255, 0.5, 0.5, -1);
+    // p.directionalLight(255, 255, 255, 0.5, 0.5, -1);
+    p.rectMode(p.CENTER);
     for (var i = 0; i < stars.length; i++) {
       stars[i].update(speed);
-      stars[i].show(shape);
+      stars[i].show();
     }
+    p.strokeWeight(weight)
+    p.stroke(200);
+    // p.line(-200, 100, p.mouseX-400, p.mouseY-400)
   };
 };
 
