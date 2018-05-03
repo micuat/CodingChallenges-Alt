@@ -10,19 +10,19 @@
 // (230, 230, 250) // background
 
 
-var s = function (sketch) {
+var s = function (p) {
 
   var drops = [];
 
-  sketch.setup = function () {
-    sketch.createCanvas(640, 360);
+  p.setup = function () {
+    p.createCanvas(640, 360);
     for (var i = 0; i < 500; i++) {
-      drops[i] = new Drop(sketch);
+      drops[i] = new Drop();
     }
   }
 
-  sketch.draw = function () {
-    sketch.background(230, 230, 250);
+  p.draw = function () {
+    p.background(230, 230, 250);
     for (var i = 0; i < drops.length; i++) {
       drops[i].fall();
       drops[i].show();
@@ -31,4 +31,4 @@ var s = function (sketch) {
 
 };
 
-var myp5 = new p5(s);
+var p004 = new p5(s);

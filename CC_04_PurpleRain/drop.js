@@ -5,28 +5,28 @@
 
 // instance mode by Naoto Hieda
 
-function Drop(sketch) {
-  this.x = sketch.random(sketch.width);
-  this.y = sketch.random(-500, -50);
-  this.z = sketch.random(0, 20);
-  this.len = sketch.map(this.z, 0, 20, 10, 20);
-  this.yspeed = sketch.map(this.z, 0, 20, 1, 20);
+function Drop() {
+  this.x = p004.random(p004.width);
+  this.y = p004.random(-500, -50);
+  this.z = p004.random(0, 20);
+  this.len = p004.map(this.z, 0, 20, 10, 20);
+  this.yspeed = p004.map(this.z, 0, 20, 1, 20);
 
   this.fall = function() {
     this.y = this.y + this.yspeed;
-    var grav = sketch.map(this.z, 0, 20, 0, 0.2);
+    var grav = p004.map(this.z, 0, 20, 0, 0.2);
     this.yspeed = this.yspeed + grav;
 
-    if (this.y > sketch.height) {
-      this.y = sketch.random(-200, -100);
-      this.yspeed = sketch.map(this.z, 0, 20, 4, 10);
+    if (this.y > p004.height) {
+      this.y = p004.random(-200, -100);
+      this.yspeed = p004.map(this.z, 0, 20, 4, 10);
     }
   }
 
   this.show = function() {
-    var thick = sketch.map(this.z, 0, 20, 1, 3);
-    sketch.strokeWeight(thick);
-    sketch.stroke(138, 43, 226);
-    sketch.line(this.x, this.y, this.x, this.y+this.len);
+    var thick = p004.map(this.z, 0, 20, 1, 3);
+    p004.strokeWeight(thick);
+    p004.stroke(138, 43, 226);
+    p004.line(this.x, this.y, this.x, this.y+this.len);
   }
 }
