@@ -3,19 +3,19 @@
 // http://patreon.com/codingtrain
 // Code for: https://youtu.be/jxGS3fKPKJA
 
-function Cell(sketch, pos, r, c) {
+function Cell(pos, r, c) {
 
   if (pos) {
     this.pos = pos.copy();
   } else {
-    this.pos = sketch.createVector(sketch.random(sketch.width), sketch.random(sketch.height));
+    this.pos = p006.createVector(p006.random(p006.width), p006.random(p006.height));
   }
 
   this.r = r || 60;
-  this.c = c || sketch.color(sketch.random(100, 255), 0, sketch.random(100, 255), 100);
+  this.c = c || p006.color(p006.random(100, 255), 0, p006.random(100, 255), 100);
 
   this.clicked = function(x, y) {
-    var d = sketch.dist(this.pos.x, this.pos.y, x, y);
+    var d = p006.dist(this.pos.x, this.pos.y, x, y);
     if (d < this.r) {
       return true;
     } else {
@@ -25,7 +25,7 @@ function Cell(sketch, pos, r, c) {
 
   this.mitosis = function() {
     //this.pos.x += random(-this.r, this.r);
-    var cell = new Cell(sketch, this.pos, this.r*0.8, this.c);
+    var cell = new Cell(this.pos, this.r*0.8, this.c);
     return cell;
   }
 
@@ -35,9 +35,9 @@ function Cell(sketch, pos, r, c) {
   }
 
   this.show = function() {
-    sketch.noStroke();
-    sketch.fill(this.c);
-    sketch.ellipse(this.pos.x, this.pos.y, this.r, this.r)
+    p006.noStroke();
+    p006.fill(this.c);
+    p006.ellipse(this.pos.x, this.pos.y, this.r, this.r)
   }
 
 }

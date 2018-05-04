@@ -5,27 +5,27 @@
 
 // instance mode by Naoto Hieda
 
-var s = function (sketch) {
+var s = function (p) {
 
   var cells = [];
 
-  sketch.setup = function () {
-    sketch.createCanvas(700, 700);
-    cells.push(new Cell(sketch));
-    cells.push(new Cell(sketch));
+  p.setup = function () {
+    p.createCanvas(700, 700);
+    cells.push(new Cell());
+    cells.push(new Cell());
   }
 
-  sketch.draw = function () {
-    sketch.background(200);
+  p.draw = function () {
+    p.background(200);
     for (var i = 0; i < cells.length; i++) {
       cells[i].move();
       cells[i].show();
     }
   }
 
-  sketch.mousePressed = function () {
+  p.mousePressed = function () {
     for (var i = cells.length-1; i >= 0; i--) {
-      if (cells[i].clicked(sketch.mouseX, sketch.mouseY)) {
+      if (cells[i].clicked(p.mouseX, p.mouseY)) {
         cells.push(cells[i].mitosis());
         cells.push(cells[i].mitosis());
         cells.splice(i, 1);
@@ -34,4 +34,4 @@ var s = function (sketch) {
   }
 };
 
-var myp5 = new p5(s);
+var p006 = new p5(s);
