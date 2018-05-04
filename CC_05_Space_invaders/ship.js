@@ -5,14 +5,14 @@
 
 // instance mode by Naoto Hieda
 
-function Ship(sketch) {
-  this.x = sketch.width/2;
+function Ship() {
+  this.x = p005.width/2;
   this.xdir = 0;
 
   this.show = function() {
-    sketch.fill(255);
-    sketch.rectMode(sketch.CENTER);
-    sketch.rect(this.x, sketch.height-20, 20, 60);
+    p005.fill(255);
+    p005.rectMode(p005.CENTER);
+    p005.rect(this.x, p005.height-20, 20, 60);
   }
 
   this.setDir = function(dir) {

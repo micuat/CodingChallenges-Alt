@@ -5,7 +5,7 @@
 
 // instance mode by Naoto Hieda
 
-function Flower(sketch, x, y) {
+function Flower(x, y) {
   this.x = x;
   this.y = y;
   this.r = 30;
@@ -26,9 +26,9 @@ function Flower(sketch, x, y) {
   }
 
   this.show = function() {
-    sketch.noStroke();
-    sketch.fill(255, 0, 200, 150);
-    sketch.ellipse(this.x, this.y, this.r*2, this.r*2);
+    p005.noStroke();
+    p005.fill(255, 0, 200, 150);
+    p005.ellipse(this.x, this.y, this.r*2, this.r*2);
   }
 
 }

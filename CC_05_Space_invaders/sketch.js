@@ -5,23 +5,23 @@
 
 // instance mode by Naoto Hieda
 
-var s = function (sketch) {
+var s = function (p) {
 
   var ship;
   var flowers = [];
   var drops = [];
 
-  sketch.setup = function () {
-    sketch.createCanvas(600, 400);
-    ship = new Ship(sketch);
+  p.setup = function () {
+    p.createCanvas(600, 400);
+    ship = new Ship();
     // drop = new Drop(width/2, height/2);
     for (var i = 0; i < 6; i++) {
-      flowers[i] = new Flower(sketch, i * 80 + 80, 60);
+      flowers[i] = new Flower(i * 80 + 80, 60);
     }
   }
 
-  sketch.draw = function () {
-    sketch.background(51);
+  p.draw = function () {
+    p.background(51);
     ship.show();
     ship.move();
 
@@ -41,7 +41,7 @@ var s = function (sketch) {
     for (var i = 0; i < flowers.length; i++) {
       flowers[i].show();
       flowers[i].move();
-      if (flowers[i].x > sketch.width || flowers[i].x < 0) {
+      if (flowers[i].x > p.width || flowers[i].x < 0) {
         edge = true;
       }
     }
@@ -61,26 +61,26 @@ var s = function (sketch) {
 
   }
 
-  sketch.keyReleased = function () {
-    if (sketch.key != ' ') {
+  p.keyReleased = function () {
+    if (p.key != ' ') {
       ship.setDir(0);
     }
   }
 
 
-  sketch.keyPressed = function () {
-    if (sketch.key == ' ') {
-      var drop = new Drop(sketch, ship.x, sketch.height);
+  p.keyPressed = function () {
+    if (p.key == ' ') {
+      var drop = new Drop(ship.x, p.height);
       drops.push(drop);
     }
 
-    if (sketch.keyCode === sketch.RIGHT_ARROW) {
+    if (p.keyCode === p.RIGHT_ARROW) {
       ship.setDir(1);
-    } else if (sketch.keyCode === sketch.LEFT_ARROW) {
+    } else if (p.keyCode === p.LEFT_ARROW) {
       ship.setDir(-1);
     }
   }
 
 };
 
-var myp5 = new p5(s);
+var p005 = new p5(s);

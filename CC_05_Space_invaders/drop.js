@@ -5,16 +5,16 @@
 
 // instance mode by Naoto Hieda
 
-function Drop(sketch, x, y) {
+function Drop(x, y) {
   this.x = x;
   this.y = y;
   this.r = 8;
   this.toDelete = false;
 
   this.show = function() {
-    sketch.noStroke();
-    sketch.fill(150, 0, 255);
-    sketch.ellipse(this.x, this.y, this.r*2, this.r*2);
+    p005.noStroke();
+    p005.fill(150, 0, 255);
+    p005.ellipse(this.x, this.y, this.r*2, this.r*2);
   }
 
   this.evaporate = function() {
@@ -22,7 +22,7 @@ function Drop(sketch, x, y) {
   }
 
   this.hits = function(flower) {
-    var d = sketch.dist(this.x, this.y, flower.x, flower.y);
+    var d = p005.dist(this.x, this.y, flower.x, flower.y);
     if (d < this.r + flower.r) {
       return true;
     } else {
