@@ -61,6 +61,12 @@ float frameRate() {
 }
 
 void setup() {
+  noSmooth();
+  hint(DISABLE_TEXTURE_MIPMAPS);
+
+  //smooth();
+  //hint(ENABLE_TEXTURE_MIPMAPS);
+
   oscP5 = new OscP5(this, 7000);
 
   RG.init(this);
@@ -73,8 +79,8 @@ void setup() {
 
 
   libPaths.add(sketchPath("event-loop-nashorn.js"));
-  scriptPaths.add(sketchPath("../CC_98_1_QuadTree/quadtree.js"));
-  scriptPaths.add(sketchPath("../CC_98_1_QuadTree/sketch.js"));
+  //libPaths.add(sketchPath("../CC_99_ColorPredictor/lib/synaptic.min.js"));
+  scriptPaths.add(sketchPath("../CC_Alt2_25_SphereGeometry/sketch.js"));
 
   initNashorn();
 }
@@ -250,6 +256,9 @@ void draw() {
   catch (ScriptException e) {
     e.printStackTrace();
   }
+  catch (Exception e) {
+    e.printStackTrace();
+  }
 }
 
 private static byte[] encoded;
@@ -269,6 +278,9 @@ public static String readFile(String path) throws IOException {
     catch (ScriptException e) {
       e.printStackTrace();
     }
+    catch (Exception e) {
+      e.printStackTrace();
+    }
   }
   return new String(encoded, StandardCharsets.UTF_8);
 }
@@ -283,6 +295,9 @@ public void readLibs(ArrayList<String> paths) throws IOException {
       nashorn.eval(new String(encoded, StandardCharsets.UTF_8));
     }
     catch (ScriptException e) {
+      e.printStackTrace();
+    }
+    catch (Exception e) {
       e.printStackTrace();
     }
   }
@@ -304,6 +319,9 @@ public void readFiles(ArrayList<String> paths) throws IOException {
     catch (ScriptException e) {
       e.printStackTrace();
     }
+    catch (Exception e) {
+      e.printStackTrace();
+    }
     for (String path : paths) {
       encoded = Files.readAllBytes(Paths.get(path));
 
@@ -313,6 +331,9 @@ public void readFiles(ArrayList<String> paths) throws IOException {
       catch (ScriptException e) {
         e.printStackTrace();
       }
+      catch (Exception e) {
+        e.printStackTrace();
+      }
     }
     try {
       nashorn.eval("if(alternateSketch.preload !== undefined) alternateSketch.preload();");
@@ -320,6 +341,9 @@ public void readFiles(ArrayList<String> paths) throws IOException {
       surface.setSize(newWidth, newHeight);
     }
     catch (ScriptException e) {
+      e.printStackTrace();
+    }
+    catch (Exception e) {
       e.printStackTrace();
     }
   }
