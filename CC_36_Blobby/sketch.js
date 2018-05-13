@@ -7,35 +7,35 @@
 
 var yoff = 0.0;
 
-var s = function (sketch) {
-  sketch.setup = function () {
-    sketch.createCanvas(400, 400);
+var s = function (p) {
+  p.setup = function () {
+    p.createCanvas(400, 400);
   }
 
-  sketch.draw = function () {
-    sketch.background(0);
+  p.draw = function () {
+    p.background(0);
 
-    sketch.translate(sketch.width / 2, sketch.height / 2);
+    p.translate(p.width / 2, p.height / 2);
 
-    var radius = 150;
+    let radius = 150;
 
-    sketch.beginShape();
-    var xoff = 0;
-    for (var a = 0; a < sketch.TWO_PI; a += 0.1) {
-      var offset = sketch.map(sketch.noise(xoff, yoff), 0, 1, -25, 25);
-      var r = radius + offset;
-      var x = r * sketch.cos(a);
-      var y = r * sketch.sin(a);
-      sketch.vertex(x, y);
+    p.beginShape();
+    let xoff = 0;
+    for (let a = 0; a < p.TWO_PI; a += 0.1) {
+      let offset = p.map(p.noise(xoff, yoff), 0, 1, -25, 25);
+      let r = radius + offset;
+      let x = r * p.cos(a);
+      let y = r * p.sin(a);
+      p.vertex(x, y);
       xoff += 0.1;
       //ellipse(x, y, 4, 4);
     }
-    sketch.endShape();
+    p.endShape();
 
     yoff += 0.01;
   }
 
 };
 
-var myp5 = new p5(s);
+var p036 = new p5(s);
 
