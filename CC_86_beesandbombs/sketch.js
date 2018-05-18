@@ -24,8 +24,10 @@ var s = function (p) {
     p.background(100);
     p.ortho(-400, 400, 400, -400, 0, 1000);
     p.rotateX(-ma);
-    p.rotateY(-p.QUARTER_PI)
-    p.lights();
+    p.rotateY(-p.QUARTER_PI);
+    if(p.isLiveJs) {
+      p.lights();
+    }
 
     for (let z = 0; z < p.height; z += w) {
       for (let x = 0; x < p.width; x += w) {
@@ -47,4 +49,4 @@ var s = function (p) {
 
 };
 
-var myp5 = new p5(s);
+var p086 = new p5(s);
