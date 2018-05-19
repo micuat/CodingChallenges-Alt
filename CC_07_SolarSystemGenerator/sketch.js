@@ -2,23 +2,23 @@
 
 // instance mode by Naoto Hieda
 
-var s = function (sketch) {
+var s = function (p) {
 
     var sun;
 
-    sketch.setup = function () {
-        sketch.createCanvas(600, 600);
-        sun = new Planet(sketch, 50, 0, 0, sketch.random(sketch.TWO_PI));
+    p.setup = function () {
+        p.createCanvas(600, 600);
+        sun = new Planet(50, 0, 0, p.random(p.TWO_PI));
         sun.spawnMoons(5, 1);
     }
 
-    sketch.draw = function () {
-        sketch.background(51);
-        sketch.translate(sketch.width/2, sketch.height/2);
+    p.draw = function () {
+        p.background(51);
+        p.translate(p.width/2, p.height/2);
         sun.show();
         sun.orbit();
     }
 
 };
 
-var myp5 = new p5(s);
+var p007 = new p5(s);
