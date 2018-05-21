@@ -8,20 +8,20 @@
 var x;
 var y;
 
-var s = function (sketch) {
-  sketch.setup = function () {
-    sketch.createCanvas(400, 400);
+var s = function (p) {
+  p.setup = function () {
+    p.createCanvas(400, 400);
     x = 200;
     y = 200;
-    sketch.background(51);
+    p.background(51);
   }
 
-  sketch.draw = function () {
-    sketch.stroke(255, 100);
-    sketch.strokeWeight(2);
-    sketch.point(x, y);
+  p.draw = function () {
+    p.stroke(255, 100);
+    p.strokeWeight(2);
+    p.point(x, y);
 
-    var r = sketch.floor(sketch.random(4));
+    var r = p.floor(p.random(4));
 
     switch (r) {
       case 0:
@@ -43,4 +43,4 @@ var s = function (sketch) {
 
 };
 
-var myp5 = new p5(s);
+var p052 = new p5(s);

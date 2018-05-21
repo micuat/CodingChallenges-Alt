@@ -8,24 +8,24 @@
 var x;
 var y;
 
-var s = function (sketch) {
-  sketch.setup = function () {
-    sketch.createCanvas(800, 800);
+var s = function (p) {
+  p.setup = function () {
+    p.createCanvas(800, 800);
     x = 400;
     y = 400;
-    sketch.background(0);
+    p.background(0);
   }
 
-  sketch.draw = function () {
-    if(sketch.frameCount % 60 == 0) {
-      x = sketch.random(sketch.width);
-      y = sketch.random(sketch.height);
+  p.draw = function () {
+    if(p.frameCount % 60 == 0) {
+      x = p.random(p.width);
+      y = p.random(p.height);
     }
-    sketch.stroke(255, 100);
-    sketch.strokeWeight(2);
-    sketch.point(x, y);
+    p.stroke(255, 100);
+    p.strokeWeight(2);
+    p.point(x, y);
 
-    var r = sketch.floor(sketch.random(4));
+    var r = p.floor(p.random(4));
 
     switch (r) {
       case 0:
@@ -47,4 +47,4 @@ var s = function (sketch) {
 
 };
 
-var myp5 = new p5(s);
+var p052 = new p5(s);
